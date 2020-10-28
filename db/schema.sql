@@ -1,3 +1,3 @@
-DROP DATABASE IF EXISTS  qustions_db;
+DROP DATABASE IF EXISTS  questions_db;
 
-CREATE DATABASE  qustions_db;
+CREATE DATABASE  questions_db;
