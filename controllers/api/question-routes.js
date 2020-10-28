@@ -78,7 +78,7 @@ router.get('/:id', (req, res) => {
     });
 });
 
-router.Question('/',withAuth,(req, res) => {
+router.post('/',withAuth,(req, res) => {
  
   Question.create({
     title: req.body.title,
