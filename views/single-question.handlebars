@@ -1,0 +1,24 @@
+
+{{> question-info question }}
+
+<div class="container">
+  <div class="row">
+    <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+      <div class="px-2">
+        <form id="comment-form" class="comment-form justify-content-center">
+          <label class="sr-only">Title</label>
+            <textarea type="text" name="comment-body" id="comment-body" class="form-control" placeholder="Add a comment"></textarea>
+          <div> <br>
+            <button type="submit" class="btn btn-dark">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{> comments post.comments}}
+
+{{#if loggedIn}}
+<script src="/javascript/comment.js"></script>
+{{/if}}
