@@ -1,4 +1,4 @@
-async function upvoteClickHandler(event) {
+async function thumbsupClickHandler(event) {
     event.preventDefault();
 
     const id = window.location.toString().split('/')[
@@ -22,4 +22,4 @@ async function upvoteClickHandler(event) {
     }
 }
 
-document.querySelector('.thumbsup-btn').addEventListener('click', upvoteClickHandler);
+document.querySelector('.thumbsup-btn').addEventListener('click', thumbsupClickHandler);

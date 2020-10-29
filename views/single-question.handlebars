@@ -5,9 +5,9 @@
   <div class="row">
     <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
       <div class="px-2">
-        <form id="comment-form" class="comment-form justify-content-center">
+        <form id="answer-form" class="answer-form justify-content-center">
           <label class="sr-only">Title</label>
-            <textarea type="text" name="comment-body" id="comment-body" class="form-control" placeholder="Add a comment"></textarea>
+            <textarea type="text" name="answer-body" id="answer-body" class="form-control" placeholder="Add a answer"></textarea>
           <div> <br>
             <button type="submit" class="btn btn-dark">Submit</button>
           </div>
@@ -17,8 +17,8 @@
   </div>
 </div>
 
-{{> comments post.comments}}
+{{> answers post.answers}}
 
 {{#if loggedIn}}
-<script src="/javascript/comment.js"></script>
+<script src="/javascript/answer.js"></script>
 {{/if}}
