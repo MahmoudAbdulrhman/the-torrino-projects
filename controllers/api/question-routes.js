@@ -82,7 +82,7 @@ router.post('/',withAuth,(req, res) => {
  
   Question.create({
     title: req.body.title,
-    question: req.body.question,
+    content: req.body.content,
     user_id: req.session.user_id
   })
     .then(dbQuestionData => res.json(dbQuestionData))
