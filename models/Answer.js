@@ -18,6 +18,10 @@ Answer.init(
         len: [1]
       }
     },
+    rating: {
+      type: DataTypes.INTEGER,
+      defaultValue: 0,
+    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
