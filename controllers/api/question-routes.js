@@ -112,31 +112,9 @@ router.put('/upthumbsup',withAuth, (req, res) => {
 router.put('/:id',withAuth, (req, res) => {
   Question.update(
     {
-      title: req.body.title
-    },
-    {
-      where: {
-        id: req.params.id
-      }
-    }
-  )
-    .then(dbQuestionData => {
-      if (!dbQuestionData) {
-        res.status(404).json({ message: 'No question found with this id' });
-        return;
-      }
-      res.json(dbQuestionData);
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-});
-
-router.put('/:id',withAuth, (req, res) => {
-  Question.update(
-    {
-      status: req.body.status
+      title: req.body.title,
+      status: req.body.status,
+      content: req.body.content
     },
     {
       where: {
