@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
-const { Question, User, Answer, Thumbsup } = require('../../models');
+const { Question, User, Answer, Rating } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 
@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
       'title',
       'status',
       'created_at',
-      [sequelize.literal('(SELECT COUNT(*) FROM thumbsup WHERE question.id = thumbsup.question_id)'), 'thumbsup_count']
+      [sequelize.literal('(SELECT COUNT(*) FROM rating WHERE question.id = rating.question_id)'), 'rating_count']
     ],
     order: [['created_at', 'DESC']],
     include: [
@@ -50,7 +50,7 @@ router.get('/:id', (req, res) => {
       'title',
       'status',
       'created_at',
-      [sequelize.literal('(SELECT COUNT(*) FROM thumbsup WHERE question.id = thumbsup.question_id)'), 'thumbsup_count']
+      [sequelize.literal('(SELECT COUNT(*) FROM rating WHERE question.id = rating.question_id)'), 'rating_count']
     ],
     include: [
       {
@@ -95,12 +95,12 @@ router.post('/',withAuth,(req, res) => {
     });
 });
 
-router.put('/upthumbsup',withAuth, (req, res) => {
+router.put('/rating',withAuth, (req, res) => {
   // make sure the session exists first
   if (req.session) {
     // pass session id along with all destructured properties on req.body
-    Question.upthumbsup({ ...req.body, user_id: req.session.user_id }, { Thumbsup, Answer, User })
-      .then(updatedThumbsupData => res.json(updatedThumbsupData))
+    Question.rating({ ...req.body, user_id: req.session.user_id }, { Rating, Answer, User })
+      .then(updatedratingData => res.json(updatedratingData))
       .catch(err => {
         console.log(err);
         res.status(500).json(err);

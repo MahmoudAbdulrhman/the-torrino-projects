@@ -16,7 +16,7 @@ router.get('/', withAuth , (req, res) => {
       'content',
       'title',
       'created_at',
-      [sequelize.literal('(SELECT COUNT(*) FROM thumbsup WHERE question.id = thumbsup.question_id)'), 'thumbsup_count']
+      [sequelize.literal('(SELECT COUNT(*) FROM rating WHERE question.id = rating.question_id)'), 'rating_count']
     ],
     include: [
       {
@@ -54,7 +54,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
       'content',
       'title',
       'created_at',
-      [sequelize.literal('(SELECT COUNT(*) FROM thumbsup WHERE question.id = thumbsup.question_id)'), 'thumbsup_count']
+      [sequelize.literal('(SELECT COUNT(*) FROM rating WHERE question.id = rating.question_id)'), 'rating_count']
     ],
     include: [
       {
@@ -80,7 +80,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
       // serialize the data
       const Question = dbQuestionData.get({ plain: true });
 
-      res.render('edit-Question', {
+      res.render('edit-question', {
        Question,
        loggedIn: true
       });

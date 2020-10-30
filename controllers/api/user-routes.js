@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Answer, Thumbsup, Question } = require('../../models');
+const { User, Answer, Rating, Question } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 
@@ -37,7 +37,7 @@ router.get('/:id', (req, res) => {
       {
         model: Question,
         attributes: ['title'],
-        through: Thumbsup,
+        through: Rating,
         as: 'thumbedsup_questions'
       }
     ]

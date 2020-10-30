@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
         'content',
         'title',
         'created_at',
-        [sequelize.literal('(SELECT COUNT(*) FROM thumbsup WHERE question.id = thumbsup.question_id)'), 'thumbsup_count']
+        [sequelize.literal('(SELECT COUNT(*) FROM rating WHERE question.id = rating.question_id)'), 'rating_count']
       ],
       include: [
         {
@@ -64,7 +64,7 @@ router.get('/', (req, res) => {
         'content',
         'title',
         'created_at',
-        [sequelize.literal('(SELECT COUNT(*) FROM thumbsup WHERE question.id = thumbsup.question_id)'), 'thumbsup_count']
+        [sequelize.literal('(SELECT COUNT(*) FROM rating WHERE question.id = rating.question_id)'), 'rating_count']
       ],
       include: [
         {
