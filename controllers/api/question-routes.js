@@ -12,6 +12,7 @@ router.get('/', (req, res) => {
       'id',
       'content',
       'title',
+      'status',
       'created_at',
       [sequelize.literal('(SELECT COUNT(*) FROM thumbsup WHERE question.id = thumbsup.question_id)'), 'thumbsup_count']
     ],
@@ -47,6 +48,7 @@ router.get('/:id', (req, res) => {
       'id',
       'content',
       'title',
+      'status',
       'created_at',
       [sequelize.literal('(SELECT COUNT(*) FROM thumbsup WHERE question.id = thumbsup.question_id)'), 'thumbsup_count']
     ],
@@ -83,6 +85,7 @@ router.post('/',withAuth,(req, res) => {
   Question.create({
     title: req.body.title,
     content: req.body.content,
+    status: req.body.status,
     user_id: req.session.user_id
   })
     .then(dbQuestionData => res.json(dbQuestionData))
