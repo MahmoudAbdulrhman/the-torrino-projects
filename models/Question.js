@@ -17,14 +17,13 @@ Question.init(
       type: DataTypes.STRING,
       allowNull: false
     },
+    status: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true
+    },
     content: {
       type: DataTypes.STRING,
       allowNull: false
-    },
-    status: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false,
-      defaultValue: true
     },
     user_id: {
       type: DataTypes.INTEGER,
