@@ -16,6 +16,7 @@ router.post('/',withAuth, (req, res) => {
   if (req.session) {
     Answer.create({
       answer_text: req.body.answer_text,
+      answer_rating: req.body.answer_rating,
       question_id: req.body.question_id,
       // use the id from the session
       user_id: req.session.user_id
