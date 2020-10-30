@@ -2,7 +2,7 @@
 const Question= require('./Question');
 const User = require('./User');
 const Answer = require('./Answer');
-const Thumbsup = require('./Thumbsup');
+const Rating = require('./Rating');
 
 // ==== USER ASSOCIATIONS ==== //
 User.hasMany(Question, {
@@ -10,12 +10,12 @@ User.hasMany(Question, {
 });
 
 User.belongsToMany(Question, {
-    through: Thumbsup,
-    as: 'thumbsuped_questions',
+    through: Rating,
+    as: 'rated_questions',
     foreignKey: 'user_id'
 });
 
-User.hasMany(Thumbsup, {
+User.hasMany(Rating, {
     foreignKey: 'user_id'
 });
 
@@ -29,12 +29,12 @@ Question.belongsTo(User, {
 });
 
 Question.belongsToMany(User, {
-    through: Thumbsup,
-    as: 'thumbsuped_questions',
+    through: Rating,
+    as: 'rated_questions',
     foreignKey: 'question_id'
 });
 
-Question.hasMany(Thumbsup, {
+Question.hasMany(Rating, {
     foreignKey: 'question_id'
 });
 
@@ -51,14 +51,14 @@ Answer.belongsTo(Question, {
     foreignKey: 'question_id'
 });
 
-// ==== THUMBSUP ASSOCIATIONS ==== // 
-Thumbsup.belongsTo(User, {
+// ==== RATING ASSOCIATIONS ==== // 
+Rating.belongsTo(User, {
     foreignKey: 'user_id'
 });
   
-Thumbsup.belongsTo(Question, {
+Rating.belongsTo(Question, {
     foreignKey: 'question_id'
 });
   
 
-module.exports = { User, Answer, Question, Thumbsup };
+module.exports = { User, Answer, Question, Rating };
