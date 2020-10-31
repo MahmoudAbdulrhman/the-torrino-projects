@@ -38,7 +38,7 @@ router.get('/:id', (req, res) => {
         model: Question,
         attributes: ['title'],
         through: Rating,
-        as: 'thumbedsup_questions'
+        as: 'rated_questions'
       }
     ]
   })

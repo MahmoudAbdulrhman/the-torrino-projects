@@ -1,11 +1,11 @@
-async function thumbsupClickHandler(event) {
+async function ratingHandler(event) {
     event.preventDefault();
 
     const id = window.location.toString().split('/')[
         window.location.toString().split('/').length - 1
     ];
 
-    const response = await fetch('/api/posts/thumbsup', {
+    const response = await fetch('/api/posts/rating', {
         method: 'PUT',
         body: JSON.stringify({
             post_id: id
@@ -22,4 +22,4 @@ async function thumbsupClickHandler(event) {
     }
 }
 
-document.querySelector('.thumbsup-btn').addEventListener('click', thumbsupClickHandler);
+document.querySelector('.rating-btn').addEventListener('click', ratingHandler);

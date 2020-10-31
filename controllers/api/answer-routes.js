@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Answer } = require('../../models');
+const { Answer, Rating, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.get('/', (req, res) => {
@@ -25,6 +25,18 @@ router.post('/',withAuth, (req, res) => {
       .catch(err => {
         console.log(err);
         res.status(400).json(err);
+      });
+  }
+});
+
+router.put('/rating', withAuth, (req, res) => {
+  if (req.session) {
+    // pass session id along with all destructured properties on req.body
+    Post.rating({ ...req.body, user_id: req.session.user_id }, { Rating, Comment, User })
+      .then(updatedRatings => res.json(updatedRatings))
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
       });
   }
 });

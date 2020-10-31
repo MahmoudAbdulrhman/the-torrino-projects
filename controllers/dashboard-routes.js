@@ -15,8 +15,7 @@ router.get('/', withAuth , (req, res) => {
       'id',
       'content',
       'title',
-      'created_at',
-      [sequelize.literal('(SELECT COUNT(*) FROM rating WHERE question.id = rating.question_id)'), 'rating_count']
+      'created_at'
     ],
     include: [
       {
@@ -53,8 +52,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
       'id',
       'content',
       'title',
-      'created_at',
-      [sequelize.literal('(SELECT COUNT(*) FROM rating WHERE question.id = rating.question_id)'), 'rating_count']
+      'created_at'
     ],
     include: [
       {
