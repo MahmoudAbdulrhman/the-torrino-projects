@@ -18,11 +18,11 @@ Rating.init(
         key: 'id'
       }
     },
-    question_id: {
+    answer_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'question',
+        model: 'answer',
         key: 'id'
       }
     }
