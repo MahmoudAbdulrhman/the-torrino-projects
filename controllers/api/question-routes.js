@@ -13,8 +13,7 @@ router.get('/', (req, res) => {
       'content',
       'title',
       'status',
-      'created_at',
-      [sequelize.literal('(SELECT COUNT(*) FROM rating WHERE question.id = rating.question_id)'), 'rating_count']
+      'created_at'
     ],
     order: [['created_at', 'DESC']],
     include: [
@@ -49,8 +48,7 @@ router.get('/:id', (req, res) => {
       'content',
       'title',
       'status',
-      'created_at',
-      [sequelize.literal('(SELECT COUNT(*) FROM rating WHERE question.id = rating.question_id)'), 'rating_count']
+      'created_at'
     ],
     include: [
       {
@@ -153,5 +151,6 @@ router.delete('/:id',withAuth, (req, res) => {
       res.status(500).json(err);
     });
 });
+
 
 module.exports = router;
