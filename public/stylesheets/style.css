@@ -176,3 +176,16 @@
     padding: 1%;
     font-size: 110%;
   }
+
+
+/* STAR RATING */
+/* //change the whole image used as the star. Make sure to set starSize in options if not 16px.
+//first image is for the 'off' mode */
+.star-rating {
+        background: url("myStar_off.svg") !important;
+}
+
+/* //add style for 'on' mode */
+.star-rating .star-value {
+        background: url("myStar_on.svg") !important;
+}

@@ -1,3 +1,4 @@
+
 async function ratingHandler(event) {
     event.preventDefault();
 
@@ -15,6 +16,8 @@ async function ratingHandler(event) {
         }
     });
 
+    
+
     if (response.ok) {
         document.location.reload();
     } else {
@@ -22,4 +25,16 @@ async function ratingHandler(event) {
     }
 }
 
-document.querySelector('.rating-btn').addEventListener('click', ratingHandler);
+const container = document.querySelector('.rating');
+const items = container.querySelectorAll('.rating-item')
+container.onClick = e.target.classList;
+if (!elClass.contains('active')) {
+    items.forEach(
+        item => item.classList.remove('active')
+    );
+    console.log(e.target.getAttribute("data-rate"));
+    elClass.add('active');
+}
+
+
+// document.querySelector('.rating-btn').addEventListener('click', ratingHandler);
