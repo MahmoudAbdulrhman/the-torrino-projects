@@ -1,16 +1,41 @@
-<form class="login-form">
-    <div>
-        <label for="username-login">username:</label>
-        <input type="text" id="username-login" />
+<div class="container">
+    <div class="columns is-centered">
+        <div class="column is-5-tablet is-4-desktop is-4-widescreen">
+            <form action="" class="box login-form is-centered">
+                <div class="field">
+                    <label for="username-login" class="label">Username</label>
+                    <div class="control has-icons-left">
+                        <input type="email" placeholder="e.g. johnsmith123" class="input" id="username-login"
+                            required>
+                        <span class="icon is-small is-left">
+                            <i class="fa fa-user"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="password-login" class="label">Password</label>
+                    <div class="control has-icons-left">
+                        <input type="password" placeholder="*******" id="password-login" class="input" required>
+                        <span class="icon is-small is-left">
+                            <i class="fa fa-lock"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="" class="checkbox">
+                        <input type="checkbox">
+                        Remember me
+                    </label>
+                </div>
+                <div class="field">
+                    <button class="button is-success">
+                        Login
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
-    <div>
-        <label for="password-login">password:</label>
-        <input type="password" id="password-login" />
-    </div>
-    <div>
-        <button type="submit">login</button>
-    </div>
-</form>
+</div>
 
 <script src="/javascript/login.js"></script>
 
