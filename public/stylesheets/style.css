@@ -179,13 +179,35 @@
 
 
 /* STAR RATING */
-/* //change the whole image used as the star. Make sure to set starSize in options if not 16px.
-//first image is for the 'off' mode */
-.star-rating {
-        background: url("myStar_off.svg") !important;
+.rating {
+  display: flex;
+  padding: 0;
+  margin: 0;
 }
 
-/* //add style for 'on' mode */
-.star-rating .star-value {
-        background: url("myStar_on.svg") !important;
+.rating li {
+  list-style-type: none
+}
+
+.rating-item {
+  border: 1px solid #ffff;
+  cursor: pointer;
+  font-size: 2em;
+  color: yellow;
+}
+
+.rating-item::before {
+  content: "\2605";
+}
+
+.rating-item.active ~ .rating-item::before {
+  content: "\2606";
+} 
+
+.rating:hover .rating-item::before {
+  content: "\2605";
+}
+
+.rating-item:hover ~ .rating-item::before {
+  content: "\2606";
 }
