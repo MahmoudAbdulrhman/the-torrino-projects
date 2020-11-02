@@ -1,3 +1,22 @@
-<body>
-    <h1>Main is the only handlebar is the layout</h1> 
-</body>
+<div class="container">
+    <div class="columns is-centered">
+        <div class="column is-5-tablet is-4-desktop is-4-widescreen">
+
+            <article class="posts list-group">
+                {{#each posts}}
+                <div class="list-group-item d-flex justify-content-between align-items-center bg-dark">
+                    <a href="/dashboard/question/{{id}}" class="lead text-white">{{title}}</a>
+                    <span class="post-meta text-white">Created at {{format_date created_at}}</span>
+                </div>
+                <div class="list-group-item d-flex justify-content-between align-items-center">
+                    {{content}}
+                </div>
+                <div class="list-group-item d-flex justify-content-between align-items-center">
+                    {{!-- rating here --}}
+                </div>
+                {{/each}}
+            </article>
+
+        </div>
+    </div>
+</div>
