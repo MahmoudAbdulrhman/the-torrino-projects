@@ -1,23 +1,4 @@
-<div class="container">
-    <div class="columns is-centered">
-        <div class="column is-5-tablet is-4-desktop is-4-widescreen">
 
-            <article class="posts list-group">
-                {{#each questions}}
-                <div class="list-group-item d-flex justify-content-between align-items-center bg-dark">
-                    <a href="/dashboard/question/{{id}}" class="lead text-white">{{title}}</a>
-                    <span class="post-meta text-white">Created at {{format_date created_at}}</span>
-                </div>
-                <div class="list-group-item d-flex justify-content-between align-items-center">
-                    {{content}}
-                </div>
-                <div class="list-group-item d-flex justify-content-between align-items-center">
-                    {{!-- ratings here --}}
-                    <script src="/javascripts/rating.js"></script>
-                </div>
-                {{/each}}
-            </article>
-
-        </div>
-    </div>
-</div>
+{{#each questions as |question|}}
+{{> question-info question}}
+{{/each}}
