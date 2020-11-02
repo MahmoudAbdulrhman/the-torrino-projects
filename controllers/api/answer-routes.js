@@ -10,8 +10,8 @@ router.get('/', (req, res) => {
       res.status(500).json(err);
     });
 });
-
-router.post('/', withAuth, (req, res) => {
+//put  withAuth,
+router.post('/', (req, res) => {
   // check the session
   if (req.session) {
     Answer.create({
@@ -27,8 +27,8 @@ router.post('/', withAuth, (req, res) => {
       });
   }
 });
-
-router.delete('/:id', withAuth, (req, res) => {
+//put  withAuth,
+router.delete('/:id', (req, res) => {
   Answer.destroy({
     where: {
       id: req.params.id

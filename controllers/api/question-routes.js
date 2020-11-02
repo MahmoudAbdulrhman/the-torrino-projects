@@ -13,6 +13,7 @@ router.get('/', (req, res) => {
       'title',
       'created_at',
       'status',
+      'user_id'
       // [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE question.id = vote.question_id)'), 'vote_count']
     ],
     order: [['created_at', 'DESC']],
@@ -49,7 +50,8 @@ router.get('/:id', (req, res) => {
       'content',
       'title',
       'created_at',
-      'status'
+      'status',
+      'user_id'
       // [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE question.id = vote.question_id)'), 'vote_count']
     ],
     include: [
