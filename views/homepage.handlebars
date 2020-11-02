@@ -3,7 +3,7 @@
         <div class="column is-5-tablet is-4-desktop is-4-widescreen">
 
             <article class="posts list-group">
-                {{#each posts}}
+                {{#each questions}}
                 <div class="list-group-item d-flex justify-content-between align-items-center bg-dark">
                     <a href="/dashboard/question/{{id}}" class="lead text-white">{{title}}</a>
                     <span class="post-meta text-white">Created at {{format_date created_at}}</span>
@@ -12,7 +12,7 @@
                     {{content}}
                 </div>
                 <div class="list-group-item d-flex justify-content-between align-items-center">
-                    {{!-- rating here --}}
+                    {{!-- David, put rating here --}}
                 </div>
                 {{/each}}
             </article>

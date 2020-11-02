@@ -58,11 +58,11 @@ router.get('/signup', (req, res) => {
   res.render('signup');
 });
 
-router.get('/', (req, res) => {
-  console.log(req.session);
+// router.get('/', (req, res) => {
+//   console.log(req.session);
 
-  // other logic...
-});
+//   // other logic...
+// });
 
 router.get('/question/:id', (req, res) => {
   Question.findOne({
