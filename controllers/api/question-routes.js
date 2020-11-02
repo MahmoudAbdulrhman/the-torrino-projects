@@ -9,10 +9,12 @@ router.get('/', (req, res) => {
   Question.findAll({
     attributes: [
       'id',
-      'question_url',
+      'content',
       'title',
       'created_at',
-      [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE question.id = vote.question_id)'), 'vote_count']
+      'status',
+      'rating'
+      // [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE question.id = vote.question_id)'), 'vote_count']
     ],
     order: [['created_at', 'DESC']],
     include: [
@@ -38,21 +40,22 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', withAuth, (req, res) => {
-  question.findOne({
+  Question.findOne({
     where: {
       id: req.params.id
     },
     attributes: [
       'id',
-      'question_url',
+      'content',
       'title',
       'created_at',
-      [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE question.id = vote.question_id)'), 'vote_count']
+      'status'
+      // [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE question.id = vote.question_id)'), 'vote_count']
     ],
     include: [
       {
         model: Answer,
-        attributes: ['id', 'answer_text', 'question_id', 'user_id', 'created_at'],
+        attributes: ['id', 'answer_text', 'question_id', 'user_id', 'created_at', 'rating'],
         include: {
           model: User,
           attributes: ['username']
@@ -77,11 +80,11 @@ router.get('/:id', withAuth, (req, res) => {
     });
 });
 
-router.question('/', withAuth, (req, res) => {
-  // expects {title: 'Taskmaster goes public!', question_url: 'https://taskmaster.com/press', user_id: 1}
-  question.create({
+router.post('/', withAuth, (req, res) => {
+ 
+  Question.create({
     title: req.body.title,
-    question_url: req.body.question_url,
+    content: req.body.content,
     user_id: req.session.user_id
   })
     .then(dbquestionData => res.json(dbquestionData))
@@ -95,7 +98,7 @@ router.put('/upvote', withAuth, (req, res) => {
   // make sure the session exists first
   if (req.session) {
     // pass session id along with all destructured properties on req.body
-    question.upvote({ ...req.body, user_id: req.session.user_id }, { Vote, answer, User })
+    Question.upvote({ ...req.body, user_id: req.session.user_id }, { Rating, Answer, User })
       .then(updatedVoteData => res.json(updatedVoteData))
       .catch(err => {
         console.log(err);
@@ -105,7 +108,7 @@ router.put('/upvote', withAuth, (req, res) => {
 });
 
 router.put('/:id', withAuth, (req, res) => {
-  question.update(
+  Question.update(
     {
       title: req.body.title
     },
@@ -129,7 +132,7 @@ router.put('/:id', withAuth, (req, res) => {
 });
 
 router.delete('/:id', withAuth, (req, res) => {
-  question.destroy({
+  Question.destroy({
     where: {
       id: req.params.id
     }
