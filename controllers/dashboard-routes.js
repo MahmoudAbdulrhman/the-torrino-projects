@@ -4,8 +4,8 @@ const { Question, User, Answer } = require('../models');
 const withAuth = require('../utils/auth');
 
 
-
-router.get('/', withAuth, (req, res) => {
+//put  withAuth,
+router.get('/', (req, res) => {
   Question.findAll({
     where: {
       // use the ID from the session
@@ -42,8 +42,8 @@ router.get('/', withAuth, (req, res) => {
       res.status(500).json(err);
     });
 });
-
-router.get('/edit/:id', withAuth, (req, res) => {
+//put  withAuth,
+router.get('/edit/:id', (req, res) => {
   Question.findOne({
     where: {
       id: req.params.id

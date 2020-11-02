@@ -13,14 +13,13 @@ router.get('/', (req, res) => {
       'title',
       'created_at',
       'status',
-      'rating'
       // [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE question.id = vote.question_id)'), 'vote_count']
     ],
     order: [['created_at', 'DESC']],
     include: [
       {
         model: Answer,
-        attributes: ['id', 'answer_text', 'question_id', 'user_id', 'created_at'],
+        attributes: ['id', 'answer_text', 'question_id', 'user_id', 'created_at', 'rating'],
         include: {
           model: User,
           attributes: ['username']
@@ -39,7 +38,8 @@ router.get('/', (req, res) => {
     });
 });
 
-router.get('/:id', withAuth, (req, res) => {
+//put  withAuth,
+router.get('/:id', (req, res) => {
   Question.findOne({
     where: {
       id: req.params.id
@@ -79,8 +79,8 @@ router.get('/:id', withAuth, (req, res) => {
       res.status(500).json(err);
     });
 });
-
-router.post('/', withAuth, (req, res) => {
+//put  withAuth,
+router.post('/', (req, res) => {
  
   Question.create({
     title: req.body.title,
@@ -93,8 +93,8 @@ router.post('/', withAuth, (req, res) => {
       res.status(500).json(err);
     });
 });
-
-router.put('/upvote', withAuth, (req, res) => {
+//put  withAuth,
+router.put('/upvote', (req, res) => {
   // make sure the session exists first
   if (req.session) {
     // pass session id along with all destructured properties on req.body
@@ -106,8 +106,8 @@ router.put('/upvote', withAuth, (req, res) => {
       });
   }
 });
-
-router.put('/:id', withAuth, (req, res) => {
+//put  withAuth,
+router.put('/:id', (req, res) => {
   Question.update(
     {
       title: req.body.title
@@ -130,8 +130,8 @@ router.put('/:id', withAuth, (req, res) => {
       res.status(500).json(err);
     });
 });
-
-router.delete('/:id', withAuth, (req, res) => {
+//put  withAuth,
+router.delete('/:id', (req, res) => {
   Question.destroy({
     where: {
       id: req.params.id
