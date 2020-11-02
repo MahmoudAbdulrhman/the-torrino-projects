@@ -5,7 +5,7 @@ const withAuth = require('../utils/auth');
 
 
 
-router.get('/', withAuth , (req, res) => {
+router.get('/', withAuth, (req, res) => {
   Question.findAll({
     where: {
       // use the ID from the session
