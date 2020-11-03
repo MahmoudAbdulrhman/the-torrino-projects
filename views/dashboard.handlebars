@@ -1,49 +1,13 @@
-<div class="container is-full">
-    <div class="columns is-centered is-light">
-        <div class="column is-full has-background-light">
-            <article class="media">
-                <div class="media-content">
-                    {{#each questions}}
-                    <div class="content has-text-black-bis">
-                        <p>
-                            <strong>{{user.username}}</strong> <small>{{format_date created_at}}</small>
-                            <br>
-                            {{content}}
-                        </p>
-                    </div>
-                    <nav class="level is-mobile">
-                        <div class="level-left">
-                            <a class="level-item">
-                                <span class="icon is-small"><i class="fas fa-reply"></i></span>
-                            </a>
-                            <a class="level-item">
-                                <span class="icon is-small"><i class="fas fa-retweet"></i></span>
-                            </a>
-                            <a class="level-item">
-                                <span class="icon is-small"><i class="fas fa-heart"></i></span>
-                            </a>
-                        </div>
-                    </nav>
+<div class="media-content ">
+    <section class="section has-background-grey-lighter ">
+        <div class="container has-text-centered ">
+            <div class="columns">
+                <div class="column">
+                    <h4 class="title is-spaced is-4 has-text-dark">Question Title Placeholder</h4>
+                    <p class="subtitle is-6 has-text-dark">Question Content Placeholder
+                    </p>
                 </div>
-                <div class="media-right">
-                    <button class="delete"></button>
-                </div>
-            </article>
-    
-            <div class="stars">
-                <form action="">
-                    <input class="star star-5" id="star-5" type="radio" name="star" />
-                    <label class="star star-5" for="star-5"></label>
-                    <input class="star star-4" id="star-4" type="radio" name="star" />
-                    <label class="star star-4" for="star-4"></label>
-                    <input class="star star-3" id="star-3" type="radio" name="star" />
-                    <label class="star star-3" for="star-3"></label>
-                    <input class="star star-2" id="star-2" type="radio" name="star" />
-                    <label class="star star-2" for="star-2"></label>
-                    <input class="star star-1" id="star-1" type="radio" name="star" />
-                    <label class="star star-1" for="star-1"></label>
-                </form>
             </div>
         </div>
-    </div>
+    </section>
 </div>
