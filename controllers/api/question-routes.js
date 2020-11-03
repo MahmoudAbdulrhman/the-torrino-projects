@@ -94,7 +94,7 @@ router.post('/', (req, res) => {
     });
 });
 //put  withAuth,
-router.put('/upvote', (req, res) => {
+router.put('/rating', (req, res) => {
   // make sure the session exists first
   if (req.session) {
     // pass session id along with all destructured properties on req.body
