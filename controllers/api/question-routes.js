@@ -110,7 +110,8 @@ router.put('/rating', (req, res) => {
 router.put('/:id', (req, res) => {
   Question.update(
     {
-      title: req.body.title
+      title: req.body.title,
+      status: req.body.status
     },
     {
       where: {
