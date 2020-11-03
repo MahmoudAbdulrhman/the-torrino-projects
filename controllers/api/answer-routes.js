@@ -1,27 +1,26 @@
 const router = require('express').Router();
-const { Answer, Rating, User } = require('../../models');
+const { Answer } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.get('/', (req, res) => {
   Answer.findAll()
-    .then(dbAnswerData => res.json(dbAnswerData))
+    .then(dbanswerData => res.json(dbanswerData))
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
     });
 });
 
-router.post('/',withAuth, (req, res) => {
+router.post('/', withAuth, (req, res) => {
   // check the session
   if (req.session) {
     Answer.create({
       answer_text: req.body.answer_text,
-      answer_rating: req.body.answer_rating,
-      question_id: req.body.question_id,
+      post_id: req.body.post_id,
       // use the id from the session
       user_id: req.session.user_id
     })
-      .then(dbAnswerData => res.json(dbAnswerData))
+      .then(dbanswerData => res.json(dbanswerData))
       .catch(err => {
         console.log(err);
         res.status(400).json(err);
@@ -29,31 +28,18 @@ router.post('/',withAuth, (req, res) => {
   }
 });
 
-router.put('/rating', withAuth, (req, res) => {
-  if (req.session) {
-    // pass session id along with all destructured properties on req.body
-    Answer.rating({ ...req.body, user_id: req.session.user_id }, { Rating, Comment, User })
-      .then(updatedRatings => res.json(updatedRatings))
-      .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-      });
-  }
-});
-
-
-router.delete('/:id',withAuth, (req, res) => {
+router.delete('/:id', withAuth, (req, res) => {
   Answer.destroy({
     where: {
       id: req.params.id
     }
   })
-    .then(dbAnswerData => {
-      if (!dbAnswerData) {
+    .then(dbanswerData => {
+      if (!dbanswerData) {
         res.status(404).json({ message: 'No answer found with this id!' });
         return;
       }
-      res.json(dbAnswerData);
+      res.json(dbanswerData);
     })
     .catch(err => {
       console.log(err);

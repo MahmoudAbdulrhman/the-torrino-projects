@@ -3,7 +3,6 @@ const sequelize = require('../../config/connection');
 const { Question, User, Answer, Rating } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-
 // get all users
 router.get('/', (req, res) => {
   console.log('======================');
@@ -12,14 +11,15 @@ router.get('/', (req, res) => {
       'id',
       'content',
       'title',
+      'created_at',
       'status',
-      'created_at'
+      // [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE question.id = vote.question_id)'), 'vote_count']
     ],
     order: [['created_at', 'DESC']],
     include: [
       {
         model: Answer,
-        attributes: ['id', 'answer_text', 'question_id', 'user_id', 'created_at'],
+        attributes: ['id', 'answer_text', 'question_id', 'user_id', 'created_at', 'rating'],
         include: {
           model: User,
           attributes: ['username']
@@ -31,13 +31,14 @@ router.get('/', (req, res) => {
       }
     ]
   })
-    .then(dbQuestionData => res.json(dbQuestionData))
+    .then(dbquestionData => res.json(dbquestionData))
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
     });
 });
 
+//put  withAuth,
 router.get('/:id', (req, res) => {
   Question.findOne({
     where: {
@@ -47,13 +48,14 @@ router.get('/:id', (req, res) => {
       'id',
       'content',
       'title',
-      'status',
-      'created_at'
+      'created_at',
+      'status'
+      // [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE question.id = vote.question_id)'), 'vote_count']
     ],
     include: [
       {
         model: Answer,
-        attributes: ['id', 'answer_text', 'question_id', 'user_id', 'created_at'],
+        attributes: ['id', 'answer_text', 'question_id', 'user_id', 'created_at', 'rating'],
         include: {
           model: User,
           attributes: ['username']
@@ -65,54 +67,50 @@ router.get('/:id', (req, res) => {
       }
     ]
   })
-    .then(dbQuestionData => {
-      if (!dbQuestionData) {
+    .then(dbquestionData => {
+      if (!dbquestionData) {
         res.status(404).json({ message: 'No question found with this id' });
         return;
       }
-      res.json(dbQuestionData);
+      res.json(dbquestionData);
     })
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
     });
 });
-
-router.post('/',withAuth,(req, res) => {
+//put  withAuth,
+router.post('/', (req, res) => {
  
   Question.create({
     title: req.body.title,
     content: req.body.content,
-    status: req.body.status,
     user_id: req.session.user_id
   })
-    .then(dbQuestionData => res.json(dbQuestionData))
+    .then(dbquestionData => res.json(dbquestionData))
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
     });
 });
-
-router.put('/rating',withAuth, (req, res) => {
+//put  withAuth,
+router.put('/upvote', (req, res) => {
   // make sure the session exists first
   if (req.session) {
     // pass session id along with all destructured properties on req.body
-    Question.rating({ ...req.body, user_id: req.session.user_id }, { Rating, Answer, User })
-      .then(updatedratingData => res.json(updatedratingData))
+    Question.upvote({ ...req.body, user_id: req.session.user_id }, { Rating, Answer, User })
+      .then(updatedVoteData => res.json(updatedVoteData))
       .catch(err => {
         console.log(err);
         res.status(500).json(err);
       });
   }
 });
-
-
-router.put('/:id',withAuth, (req, res) => {
+//put  withAuth,
+router.put('/:id', (req, res) => {
   Question.update(
     {
-      title: req.body.title,
-      status: req.body.status,
-      content: req.body.content
+      title: req.body.title
     },
     {
       where: {
@@ -120,37 +118,36 @@ router.put('/:id',withAuth, (req, res) => {
       }
     }
   )
-    .then(dbQuestionData => {
-      if (!dbQuestionData) {
+    .then(dbquestionData => {
+      if (!dbquestionData) {
         res.status(404).json({ message: 'No question found with this id' });
         return;
       }
-      res.json(dbQuestionData);
+      res.json(dbquestionData);
     })
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
     });
 });
-
-router.delete('/:id',withAuth, (req, res) => {
+//put  withAuth,
+router.delete('/:id', (req, res) => {
   Question.destroy({
     where: {
       id: req.params.id
     }
   })
-    .then(dbQuestionData => {
-      if (!dbQuestionData) {
+    .then(dbquestionData => {
+      if (!dbquestionData) {
         res.status(404).json({ message: 'No question found with this id' });
         return;
       }
-      res.json(dbQuestionData);
+      res.json(dbquestionData);
     })
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
     });
 });
-
 
 module.exports = router;
