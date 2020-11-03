@@ -11,12 +11,12 @@ router.get('/', (req, res) => {
     });
 });
 
-router.post('/', withAuth, (req, res) => {
+router.post('/',  (req, res) => {
   // check the session
   if (req.session) {
     Answer.create({
       answer_text: req.body.answer_text,
-      question_id: req.body.post_id,
+      question_id: req.body.question_id,
       // use the id from the session
       user_id: req.session.user_id
     })
