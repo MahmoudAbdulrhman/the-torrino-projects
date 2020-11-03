@@ -5,8 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Study Mouse</title>
-
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 </head>
@@ -29,7 +28,7 @@
                                 LOG OUT
                             </a>
                             {{else}}
-                            <a class="navbar-item is-active" href="/signup">
+                            <a class="navbar-item" href="/signup">
                                 SIGN UP
                             </a>
                             <a class="navbar-item" href="/login">
@@ -45,7 +44,6 @@
         <!-- Hero content: will be in the middle -->
         <div class="hero-body">
             {{{ body }}}
-
         </div>
 
         <!-- Hero footer: will stick at the bottom -->
@@ -61,9 +59,11 @@
     </section>
 </body>
 
+{{#if loggedIn}}
 <script src="javascripts/logout.js"></script>
-
+{{/if}}
 </html>
+<<<<<<< HEAD
 
 <style>
     div.stars {
@@ -107,3 +107,5 @@
         font-family: FontAwesome;
     }
 </style>
+=======
+>>>>>>> 57397a99637524933d2e4d225114e3dc742cd2b8

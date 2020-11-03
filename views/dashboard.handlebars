@@ -1,23 +1,14 @@
-<div class="container is-light">
-    <div class="columns is-centered">
-        <div class="column is-full">
-            <p>Main is the only Handlebars</p>
-            {{#if loggedIn}}
-
+<div class="container is-full">
+    <div class="columns is-centered is-light">
+        <div class="column is-full has-background-light">
             <article class="media">
-                <figure class="media-left">
-                    <p class="image is-64x64">
-                        <img src="https://bulma.io/images/placeholders/128x128.png">
-                    </p>
-                </figure>
                 <div class="media-content">
-                    <div class="content">
+                    {{#each questions}}
+                    <div class="content has-text-black-bis">
                         <p>
-                            <strong>John Smith</strong> <small>@johnsmith</small> <small>31m</small>
+                            <strong>{{user.username}}</strong> <small>{{format_date created_at}}</small>
                             <br>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu
-                            pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat
-                            facilisis.
+                            {{content}}
                         </p>
                     </div>
                     <nav class="level is-mobile">
@@ -38,7 +29,7 @@
                     <button class="delete"></button>
                 </div>
             </article>
-
+    
             <div class="stars">
                 <form action="">
                     <input class="star star-5" id="star-5" type="radio" name="star" />
@@ -53,8 +44,6 @@
                     <label class="star star-1" for="star-1"></label>
                 </form>
             </div>
-
-            {{/if}}
         </div>
     </div>
 </div>
