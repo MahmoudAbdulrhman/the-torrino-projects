@@ -17,9 +17,11 @@ Question.init(
       type: DataTypes.STRING,
       allowNull: false
     },
+    // STATUS 1 for OPEN, 2 for CLOSED
     status: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: true
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 1
     },
     content: {
       type: DataTypes.STRING,
