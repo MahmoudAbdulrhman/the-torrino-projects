@@ -88,6 +88,43 @@ router.get('/edit/:id', (req, res) => {
       res.status(500).json(err);
     });
 });
+router.get('/create/', withAuth, (req, res) => {
+  Question.findAll({
+    where: {
+      // use the ID from the session
+      user_id: req.session.user_id
+    },
+    attributes: [
+      'id',
+      'title',
+      'created_at',
+      'content'
+    ],
+    include: [
+      {
+        model: Answer,
+        attributes: ['id', 'answer_text', 'question_id', 'user_id', 'created_at'],
+        include: {
+          model: User,
+          attributes: ['username']
+        }
+      },
+      {
+        model: User,
+        attributes: ['username']
+      }
+    ]
+  })
+    .then(dbQuestuionData => {
+      // serialize data before passing to template
+      const posts = dbQuestuionData.map(post => post.get({ plain: true }));
+      res.render('create-question', { posts, loggedIn: true });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 
 
 module.exports = router;

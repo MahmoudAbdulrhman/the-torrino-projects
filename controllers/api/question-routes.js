@@ -106,7 +106,8 @@ router.put('/rating', (req, res) => {
       });
   }
 });
-//put  withAuth,
+//put  withAuth
+
 router.put('/:id', (req, res) => {
   Question.update(
     {

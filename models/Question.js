@@ -17,6 +17,7 @@ Question.init(
       type: DataTypes.STRING,
       allowNull: false
     },
+    //is open 
     status: {
       type: DataTypes.BOOLEAN,
       defaultValue: true
