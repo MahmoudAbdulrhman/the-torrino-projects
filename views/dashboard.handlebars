@@ -1,12 +1,22 @@
 <div class="media-content ">
-    <a href="/dashboard/create/"><button id="create-question" class="button is-primary is-pulled-right">create post</button></a>
+    <a href="/dashboard/create/"><button id="create-question" class="button is-primary is-pulled-right">create question</button></a>
     <section class="section has-background-grey-lighter ">
         <div class="container has-text-centered ">
             <div class="columns">
                 <div class="column">
-                    <h4 class="title is-spaced is-4 has-text-dark">Question Title Placeholder</h4>
-                    <p class="subtitle is-6 has-text-dark">Question Content Placeholder
-                    </p>
+                    {{#if Questions.length}}
+                    <section>
+                        <h2>Your questions</h2>
+                        <ol>
+                            {{#each Questions as |question|}}
+                            <li>
+                                {{> question-info question}}
+                                <a href="/dashboard/edit/{{question.id}}" class="edit-link">Edit question</a>
+                            </li>
+                            {{/each}}
+                        </ol>
+                    </section>
+                    {{/if}}
                 </div>
             </div>
         </div>
