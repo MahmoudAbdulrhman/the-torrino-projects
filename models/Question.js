@@ -17,11 +17,7 @@ Question.init(
       type: DataTypes.STRING,
       allowNull: false
     },
-<<<<<<< HEAD
-    //is open 
-=======
     // STATUS 1 for OPEN
->>>>>>> dac0a6084508af2af28724de1aaacff2ae8f7d37
     status: {
       type: DataTypes.BOOLEAN,
       defaultValue: true,
