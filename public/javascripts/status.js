@@ -9,26 +9,25 @@ async function statusHandler(event) {
 
     container.onclick = e => {
         const elClass = e.target.classList;
-        
-        const response = await fetch('/api/posts', {
-            method: 'PUT',
-            body: JSON.stringify({
-                post_id: id
-            }),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
-    
-        if (response.ok) {
-            document.location.reload();
-        } else {
-            alert(response.statusText);
-        }
-        
-    };
+        if (!elClass.contains('active')) {
+            const response = await fetch('/api/posts', {
+                method: 'PUT',
+                body: JSON.stringify({
+                    post_id: id,
+                    status: false
+                }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }    
+            });
 
-    
+            if (response.ok) {
+                document.location.reload();
+            } else {
+                alert(response.statusText);
+            }
+        } 
+    };  
 }
 
 document.querySelector('.status-btn').addEventListener('click', statusHandler);
