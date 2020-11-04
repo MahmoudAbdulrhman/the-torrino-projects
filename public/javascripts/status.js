@@ -30,4 +30,4 @@ async function statusHandler(event) {
     };  
 }
 
-document.querySelector('.status-btn').addEventListener('click', statusHandler);
+document.querySelector('.close-btn').addEventListener('click', statusHandler);
