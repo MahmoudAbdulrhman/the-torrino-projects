@@ -1,27 +1,28 @@
-<div class="media-content ">
-    <a href="/dashboard/create/"><button id="create-question" class="button is-primary is-pulled-right">create
-            question</button></a>
-    <section class="section has-background-grey-lighter ">
-        <div class="container has-text-centered ">
-            <div class="columns">
-                <div class="column">
-                    {{#if Questions.length}}
-                    <section>
-                        <h2>Your questions</h2>
-                        <ol>
-                            {{#each Questions as |question|}}
-                            <li>
-                                {{> question-info question}}
-                                <a href="/dashboard/edit/{{question.id}}" class="edit-link">Edit question</a>
-                            </li>
-                            {{/each}}
-                        </ol>
-                    </section>
-                    {{else}}
-                    <h6 class="pb-4 has-text-centered is-italic">you do not have posts at this time</h6>
-                    {{/if}}
-                </div>
-            </div>
+
+{{#if loggedIn}}
+<article class="media">
+    <figure class="media-left">
+        <p class="image is-64x64">
+            <img src="https://bulma.io/images/placeholders/128x128.png">
+        </p>
+    </figure>
+    <div class="media-content">
+        <div class="content">
+            {{#each questions as |question|}}
+            <p>
+                <strong>{{user.username}}</strong> <small>{{format_date created_at}}</small>
+                <br>
+                {{> question-info question}}
+            </p>
+            <a href="/question/{{id}}">{{answers.length}} {{format_plural "answer" answers.length}}</a>
         </div>
-    </section>
-</div>
+    </div>
+    <div class="media-right">
+        <button class="delete"></button>
+    </div>
+    {{/each}}
+</article>
+
+<script src="/javascripts/delete.js"></script>
+{{/if}}
+

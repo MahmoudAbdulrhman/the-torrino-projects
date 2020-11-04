@@ -34,16 +34,17 @@ router.get('/', (req, res) => {
   })
     .then(dbQuestionData => {
       // serialize data before passing to template
-      const Questions = dbQuestionData.map(Question => Question.get({ plain: true }));
-      res.render('dashboard', { Questions, loggedIn: true });
+      const questions = dbQuestionData.map(question => question.get({ plain: true }));
+      res.render('dashboard', { questions, loggedIn: true });
     })
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
     });
 });
+
 //put  withAuth,
-router.get('/edit/:id', (req, res) => {
+router.get('/question/:id', (req, res) => {
   Question.findOne({
     where: {
       id: req.params.id
@@ -76,10 +77,10 @@ router.get('/edit/:id', (req, res) => {
       }
 
       // serialize the data
-      const Question = dbQuestionData.get({ plain: true });
+      const question = dbQuestionData.get({ plain: true });
 
-      res.render('edit-question', {
-       Question,
+      res.render('single-question', {
+       question,
        loggedIn: true
       });
     })
@@ -88,7 +89,8 @@ router.get('/edit/:id', (req, res) => {
       res.status(500).json(err);
     });
 });
-router.get('/create/', withAuth, (req, res) => {
+
+router.get('/add/', withAuth, (req, res) => {
   Question.findAll({
     where: {
       // use the ID from the session
@@ -126,5 +128,23 @@ router.get('/create/', withAuth, (req, res) => {
     });
 });
 
+router.delete('/:id', withAuth, (req, res) => {
+  Question.destroy({
+      where: {
+          id: req.params.id
+      }
+  })
+      .then(dbQuestionData => {
+          if (!dbQuestionData) {
+              res.status(404).json({ message: 'No post found with this id' });
+              return;
+          }
+          res.json(dbQuestionData);
+      })
+      .catch(err => {
+          console.log(err);
+          res.status(500).json(err);
+      });
+});
 
 module.exports = router;

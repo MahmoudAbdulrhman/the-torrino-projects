@@ -2,9 +2,9 @@
     {{#each this}}
     <div class="content has-text-black-bis">
         <p>
-            <strong>{{question.title}}</strong> <small>{{format_date created_at}}</small>
+            <strong>{{title}}</strong> <small>{{format_date created_at}}</small>
             <br>
-            {{question.content}}
+            {{content}}
         </p>
     </div>
     <nav class="level is-mobile">
@@ -21,5 +21,24 @@
             </a>
         </div>
     </nav>
-    {{/each}}
 </div>
+
+<article class="media">
+    <figure class="media-left">
+        <p class="image is-48x48">
+            <img src="https://bulma.io/images/placeholders/96x96.png">
+        </p>
+    </figure>
+    <div class="media-content">
+        <div class="content">
+            <p>
+                <strong class="has-text-white">{{user.username}}</strong>
+                <br>
+                {{answer_text}}
+                <br>
+                <small><a>Like</a> · <a>Reply</a> · 2 hrs</small>
+            </p>
+        </div>
+    </div>
+    {{/each}}
+</article>
