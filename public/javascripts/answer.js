@@ -18,6 +18,7 @@ async function answerFormHandler(event) {
                 'Content-Type': 'application/json'
             }
         });
+        console.log(answer_text);
 
         if (response.ok) {
             document.location.reload(); 
@@ -28,3 +29,4 @@ async function answerFormHandler(event) {
 }
 
 document.querySelector('.answer-form').addEventListener('submit', answerFormHandler);
+console.log("click")
