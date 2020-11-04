@@ -3,7 +3,7 @@ async function answerFormHandler(event) {
 
     const answer_text = document.querySelector('textarea[name="answer-body"]').value.trim();
 
-    const post_id = window.location.toString().split('/')[
+    const question_id = window.location.toString().split('/')[
         window.location.toString().split('/').length - 1
     ];
 
@@ -11,7 +11,7 @@ async function answerFormHandler(event) {
         const response = await fetch('/api/answers', {
             method: 'POST',
             body: JSON.stringify({
-                post_id,
+                question_id,
                 answer_text
             }),
             headers: {

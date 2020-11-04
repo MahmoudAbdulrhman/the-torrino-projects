@@ -98,8 +98,8 @@ router.put('/rating', (req, res) => {
   // make sure the session exists first
   if (req.session) {
     // pass session id along with all destructured properties on req.body
-    Question.upvote({ ...req.body, user_id: req.session.user_id }, { Rating, Answer, User })
-      .then(updatedVoteData => res.json(updatedVoteData))
+    Question.rating({ ...req.body, user_id: req.session.user_id }, { Rating, Answer, User })
+      .then(updatedRatedData => res.json(updatedRatedData))
       .catch(err => {
         console.log(err);
         res.status(500).json(err);
@@ -111,7 +111,8 @@ router.put('/rating', (req, res) => {
 router.put('/:id', (req, res) => {
   Question.update(
     {
-      title: req.body.title
+      title: req.body.title,
+      status: req.body.status
     },
     {
       where: {
