@@ -9,7 +9,7 @@ async function statusHandler(event) {
 
     container.onclick = e => {
         const elClass = e.target.classList;
-        if (!elClass.contains('active')) {
+        if (!elClass.contains('close')) {
             const response = await fetch('/api/posts', {
                 method: 'PUT',
                 body: JSON.stringify({
