@@ -27,11 +27,11 @@ router.get('/', (req, res) => {
     ]
   })
     .then(dbQuestionData => {
-      const Questions = dbQuestionData.map(question => question.get({ plain: true }));
+      const questions = dbQuestionData.map(question => question.get({ plain: true }));
 
       // pass a single Question object into the homepage template
       res.render('homepage', {
-        Questions,
+        questions,
         loggedIn: req.session.loggedIn
       });
     })
@@ -91,11 +91,11 @@ router.get('/question/:id', (req, res) => {
       }
 
       // serialize the data
-      const Question = dbQuestionData.get({ plain: true });
+      const question = dbQuestionData.get({ plain: true });
 
       // pass data to template
       res.render('single-question', {
-        Question,
+        question,
         loggedIn: req.session.loggedIn
       });
     })
