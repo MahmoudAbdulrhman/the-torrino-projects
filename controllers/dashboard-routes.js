@@ -115,10 +115,10 @@ router.get('/create/', withAuth, (req, res) => {
       }
     ]
   })
-    .then(dbQuestuionData => {
+    .then(dbQuestionData => {
       // serialize data before passing to template
-      const posts = dbQuestuionData.map(post => post.get({ plain: true }));
-      res.render('create-question', { posts, loggedIn: true });
+      const questions = dbQuestionData.map(post => post.get({ plain: true }));
+      res.render('add-question', { questions, loggedIn: true });
     })
     .catch(err => {
       console.log(err);

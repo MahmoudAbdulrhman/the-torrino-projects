@@ -1,11 +1,16 @@
 <article class="question">
   <div class="title">
+<<<<<<< HEAD
     <a href="{{content}}" target="_blank">{{title}}</a>
     <span>({{content}}) </span>
+=======
+    <a href="/dashboard/questions/{{id}}" class="lead text-white">{{title}}</a>
+    <span>({{content}})</span>
+>>>>>>> feature/answers
   </div>
   <div class="meta">
  {{user.username}} on {{format_date created_at}}
   |
-    <a href="/post/{{id}}">{{answers.length}} {{format_plural "answer" answers.length}}</a>
+    <a href="/question/{{id}}">{{answers.length}} {{format_plural "answer" answers.length}}</a>
   </div>
 </article>
