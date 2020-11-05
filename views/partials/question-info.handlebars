@@ -1,0 +1,13 @@
+
+I am the question info handlebars
+
+<p>
+  <p>{{title}}</p>
+  <p>({{content}})</p>
+  <br>
+  <a href="/question/{{id}}">{{answers.length}} {{format_plural "answer" answers.length}}</a>
+  <br>
+    {{user.username}} on {{format_date created_at}}
+    |
+    <a href="/question/{{id}}">{{answers.length}} {{format_plural "answer" answers.length}}</a>
+</p>
