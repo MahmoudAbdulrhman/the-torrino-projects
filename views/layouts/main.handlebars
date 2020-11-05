@@ -24,9 +24,9 @@
                     <div id="navbarMenuHeroC" class="navbar-menu">
                         <div class="navbar-end">
                             {{#if loggedIn}}
-                            <a class="navbar-item" href="/">
+                            {{!-- <a class="navbar-item" href="/">
                                 FEED
-                            </a>
+                            </a>                             --}}
                             <a class="navbar-item" href="/dashboard">
                                 DASHBOARD
                             </a>
@@ -49,59 +49,9 @@
 
         <!-- Hero content: will be in the middle -->
         <div class="hero-body">
-            <article class="media">
-                <div class="media-content">
-                    <div class="content">
-                        <p>
-                            <strong class="has-text-white">Question Title</strong>
-                            <br>
-                            Sed convallis scelerisque mauris, non pulvinar nunc mattis vel. Maecenas varius felis sit
-                            amet
-                            magna vestibulum euismod malesuada cursus libero. Vestibulum ante ipsum primis in faucibus
-                            orci
-                            luctus et ultrices posuere cubilia Curae; Phasellus lacinia non nisl id feugiat?
-                            <br>
-                            <small><a>Like</a> · <a href="/dashboard/add">Reply</a> · 3 hrs</small>
-                        </p>
-                    </div>
 
-                    <article class="media">
-                        <div class="media-content">
-                            <div class="content">
-                                <p>
-                                    <strong class="has-text-white">Question Title</strong>
-                                    <br>
-                                    Sed convallis scelerisque mauris, non pulvinar nunc mattis vel. Maecenas varius
-                                    felis sit amet
-                                    magna vestibulum euismod malesuada cursus libero. Vestibulum ante ipsum primis in
-                                    faucibus orci
-                                    luctus et ultrices posuere cubilia Curae; Phasellus lacinia non nisl id feugiat?
-                                    <br>
-                                    <small><a>Like</a> · <a href="/dashboard/add">Reply</a> · 2 hrs</small>
-                                </p>
-                            </div>
-                        </div>
-                    </article>
+            {{{ body }}}
 
-                    <article class="media">
-                        <div class="media-content">
-                            <div class="content">
-                                <p>
-                                    <strong class="has-text-white">Question Title</strong>
-                                    <br>
-                                    Sed convallis scelerisque mauris, non pulvinar nunc mattis vel. Maecenas varius
-                                    felis sit amet
-                                    magna vestibulum euismod malesuada cursus libero. Vestibulum ante ipsum primis in
-                                    faucibus orci
-                                    luctus et ultrices posuere cubilia Curae; Phasellus lacinia non nisl id feugiat?
-                                    <br>
-                                    <small><a>Like</a> · <a href="/dashboard/add">Reply</a> · 2 hrs</small>
-                                </p>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </article>
         </div>
 
         <!-- Hero footer: will stick at the bottom -->
