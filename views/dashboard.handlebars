@@ -1,28 +1,22 @@
 
+
 {{#if loggedIn}}
-<article class="media">
-    <figure class="media-left">
-        <p class="image is-64x64">
-            <img src="https://bulma.io/images/placeholders/128x128.png">
-        </p>
-    </figure>
+<article class="media is-flex-direction-column is-four-fifths">
     <div class="media-content">
-        <div class="content">
-            {{#each questions as |question|}}
-            <p>
-                <strong>{{user.username}}</strong> <small>{{format_date created_at}}</small>
-                <br>
-                {{> question-info question}}
-            </p>
-            <a href="/question/{{id}}">{{answers.length}} {{format_plural "answer" answers.length}}</a>
+        <div class="content has-background-grey-lighter has-text-dark">
+            <div class="media-right">
+                <button class="delete"></button>
+                {{#each questions as |question|}}
+                <p>
+                    <strong>{{user.username}}</strong> <small>{{format_date created_at}}</small>
+                    <br>
+                    {{> question-info question}}
+                </p>
+            </div>
         </div>
-    </div>
-    <div class="media-right">
-        <button class="delete"></button>
     </div>
     {{/each}}
 </article>
 
 <script src="/javascripts/delete.js"></script>
 {{/if}}
-
