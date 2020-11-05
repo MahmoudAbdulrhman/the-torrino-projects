@@ -1,12 +1,15 @@
-<article class="question">
-  <div class="title">
-    <a href="/dashboard/questions/{{id}}" class="lead text-white">{{title}}</a>
-    <span>({{content}})</span>
-  </div>
-  <div class="meta">
-    {{user}} {{user_id}}
- {{user.username}} on {{format_date created_at}}
-  |
+
+I am the question info handlebars
+
+<p>
+  <p>{{title}}</p>
+  <p>({{content}})</p>
+  <br>
+  <a href="/question/{{id}}">{{answers.length}} {{format_plural "answer" answers.length}}</a>
+  <br>
+    {{user.username}} on {{format_date created_at}}
+    |
+
     <a href="/question/{{id}}">{{answers.length}} {{format_plural "answer" answers.length}}</a>
-  </div>
-</article>
+</p>
+

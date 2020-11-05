@@ -18,13 +18,19 @@
                 <div class="container">
                     <div class="navbar-brand">
                         <a class="navbar-item">
-                            <h1 class="has-text-weight-semibold has-text-white is-size-3" href="/homepage">Study Mouse!</h1>
+                            <a class="has-text-weight-semibold has-text-white is-size-3" href="/">Study Mouse!</a>
                         </a>
                     </div>
                     <div id="navbarMenuHeroC" class="navbar-menu">
                         <div class="navbar-end">
                             {{#if loggedIn}}
-                            <a class="navbar-item" id="logout">
+                            <a class="navbar-item" href="/dashboard/add">
+                                CREATE NEW POST
+                            </a>                            
+                            <a class="navbar-item" href="/dashboard">
+                                DASHBOARD
+                            </a>
+                            <a class="navbar-item" id="logout" href="/">
                                 LOG OUT
                             </a>
                             {{else}}
@@ -43,7 +49,9 @@
 
         <!-- Hero content: will be in the middle -->
         <div class="hero-body">
+
             {{{ body }}}
+
         </div>
 
         <!-- Hero footer: will stick at the bottom -->
@@ -62,4 +70,5 @@
 {{#if loggedIn}}
 <script src="/javascripts/logout.js"></script>
 {{/if}}
+
 </html>
