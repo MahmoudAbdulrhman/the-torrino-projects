@@ -1,36 +1,25 @@
 
 
-<article class="media">
+<article class="media is-flex-direction-column *-0">
     <div class="media-content">
-        <div class="content">
-            <p>
-                <strong class="has-text-white">Arya</strong>
-                <br>
-                Sed convallis scelerisque mauris, non pulvinar nunc mattis vel. Maecenas varius felis sit amet
-                        magna vestibulum euismod malesuada cursus libero. Vestibulum ante ipsum primis in faucibus orci
-                        luctus et ultrices posuere cubilia Curae; Phasellus lacinia non nisl id feugiat.
-                <br>
-                <small><a>Like</a> · <a href="/dashboard/add">Reply</a> · 3 hrs</small>
-            </p>
-        </div>
+     <div class="mb-5 pt-3 is-align-content-center m-0">
+        <a href="/dashboard/add"><button id="create-question" class="button is-primary is-pulled-right">create question</button></a>
+        
+        <h2 class="title pb-4">dashboard: your questions</h2><hr>
+{{#if questions.length}}
+    </div>
 
-        <article class="media">
-            <div class="media-content">
-                <div class="content">
-                    <p>
-                        <strong class="has-text-white">Kayli Eunice </strong>
-                        <br>
-                        Sed convallis scelerisque mauris, non pulvinar nunc mattis vel. Maecenas varius felis sit amet
-                        magna vestibulum euismod malesuada cursus libero. Vestibulum ante ipsum primis in faucibus orci
-                        luctus et ultrices posuere cubilia Curae; Phasellus lacinia non nisl id feugiat.
-                        <br>
-                        {{#if LoggedIn}}
-                        <small><a>Like</a> · <a>Reply</a> · 2 hrs</small>
-                        {{/if}}
-                    </p>
-                </div>
-            </div>
-        </article>
+    {{#each questions as |question|}}
+        {{> question-info question}}
+        
+            <a href="/dashboard/edit/{{question.id}}"><button class="button mb-5 ml-5 has-text-success">edit question</button></a>
+        </div>
+    {{/each}}
+
+{{else}}
+<h6 class="pb-4 has-text-centered is-italic">you do not have questions at this time</h6>
+
+{{/if}}
     </div>
 </article>
 

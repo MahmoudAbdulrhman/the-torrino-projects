@@ -1,18 +1,20 @@
 
-<article class="media">
-    <div class="media-content">
-        <div class="content">
-            <p>
-                <strong class="has-text-white">Arya</strong>
-                <br>
-                Sed convallis scelerisque mauris, non pulvinar nunc mattis vel. Maecenas varius felis sit amet
-                        magna vestibulum euismod malesuada cursus libero. Vestibulum ante ipsum primis in faucibus orci
-                        luctus et ultrices posuere cubilia Curae; Phasellus lacinia non nisl id feugiat.
-                <br>
-            </p>
+   <div class="column">
+      <span class=""> </span>
+      </div>
+    
+  </header>
+
+    <div class="card-content has-background-primary-dark">
+        <div class="content has-text-white">
+            {{content}}
         </div>
+            <div class="is-pulled-right">
+                <b>{{user.username}}</b> | 
+                 | {{format_date created_at}} | <a href="/post/{{id}}">{{answers.length}} {{format_plural "answer" answers.length}}</a>
+            </div>
+        
     </div>
-</article>
 
 {{!-- <p>
   <p>{{title}}</p>
