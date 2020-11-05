@@ -8,5 +8,7 @@ I am the question info handlebars
   <br>
     {{user.username}} on {{format_date created_at}}
     |
-    <a href="/question/{{id}}">{{format_plural "answer" answers.length}}</a>
+
+    <a href="/question/{{id}}">{{answers.length}} {{format_plural "answer" answers.length}}</a>
 </p>
+
