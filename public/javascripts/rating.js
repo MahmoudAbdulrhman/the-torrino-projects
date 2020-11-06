@@ -1,28 +1,70 @@
-
-async function upvoteClickHandler(event) {
-    event.preventDefault();
-  
-    const id = window.location.toString().split('/')[
-      window.location.toString().split('/').length - 1
-    ];
-  
-    const response = await fetch('/api/questions/rating', {
-        method: 'PATCH',
-        body: JSON.stringify({
-          question_id: id
-        }),
-        headers: {
-          'Content-Type': 'application/json'
+const container = document.querySelector('.rating');
+const items = container.querySelectorAll('.star')
+container.onclick = e => {
+    const elClass = e.target.classList;
+    if (!elClass.contains('active')) {
+        items.forEach(
+            item => item.classList.remove('active')
+        );
+        console.log(e.target.getAttribute("data-rate") + " star rating!");
+        elClass.add('active');
+        let starValue = e.target.getAttribute("data-rate");
+        console.log(starValue);
+        switch(starValue) {
+            case "1":
+                alert("1 star");
+                ratingValue = 1;
+                ratingUpdate(ratingValue)
+            break;
+            case "2":
+                alert("2 stars");
+                ratingValue = 2;
+                ratingUpdate(ratingValue)
+            break;
+            case "3":
+                alert("3 stars");
+                ratingValue = 3;
+                ratingUpdate(ratingValue)
+            break;
+            case "4":
+                alert("4 stars");
+                ratingValue = 4;
+                ratingUpdate(ratingValue)
+            break;
+            case "5":
+                alert("5 stars");
+                ratingValue = 5;
+                ratingUpdate(ratingValue)
+            break;
+            default:
+                alert("no stars");
         }
-      });
-      
-      if (response.ok) {
-        document.location.reload();
-      } else {
-        alert(response.statusText);
-      }
-      
-  }
-  
-  
-  document.querySelector('.star').addEventListener('click', upvoteClickHandler);
+    }
+};
+
+function ratingUpdate(ratingData) {
+    console.log(ratingData)
+    const answer_id = document.querySelector("rating").value.trim();
+    const question_id = window.location.toString().split('/')[
+        window.location.toString().split('/').length - 1
+    ];
+    if (answer_id) {
+        const response = fetch(`/api/answers/${answer_id}`, {
+            method: 'PUT',
+            body: JSON.stringify({
+                id: answer_id,
+                question_id: question_id,
+                rating: ratingData
+            }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        console.log(rating);
+        if (response.ok) {
+            document.location.reload(); 
+        } else {
+            alert(response.statusText);
+        }
+    }
+}
