@@ -51,10 +51,16 @@
         </div>
 
         <!-- Hero content: will be in the middle -->
-        <div class="hero-body  ">
-
+        <div class="has-text-dark column is-vcentered ">
+            {{#if loggedIn}}
             {{{ body }}}
-
+            {{else}}
+            <div class="has-background-white column justify-content-between ">
+                <h2 class="subtitle is-5 has-text-dark mt-1">CURRENT INQUIRIES</h2>
+                <hr>
+                {{{ body }}}
+                {{/if}}
+            </div>
         </div>
 
         <!-- Hero footer: will stick at the bottom -->
@@ -67,6 +73,7 @@
                         Nguyen</a>
                 </p>
             </div>
+        </div>
     </section>
 </body>
 
