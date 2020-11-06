@@ -1,3 +1,4 @@
+
 const container = document.querySelector('.rating');
 const items = container.querySelectorAll('.rating-item')
 
@@ -15,27 +16,27 @@ container.onclick = e => {
         switch(starValue) {
             case "1":
                 alert("1 star");
-                let ratingValue = 1;
+                ratingValue = 1;
                 ratingUpdate(ratingValue)
             break;
             case "2":
                 alert("2 stars");
-                let ratingValue = 2;
+                ratingValue = 2;
                 ratingUpdate(ratingValue)
             break;
             case "3":
                 alert("3 stars");
-                let ratingValue = 3;
+                ratingValue = 3;
                 ratingUpdate(ratingValue)
             break;
             case "4":
                 alert("4 stars");
-                let ratingValue = 4;
+                ratingValue = 4;
                 ratingUpdate(ratingValue)
             break;
             case "5":
                 alert("5 stars");
-                let ratingValue = 5;
+                ratingValue = 5;
                 ratingUpdate(ratingValue)
             break;
             default:
@@ -44,22 +45,22 @@ container.onclick = e => {
     }
 };
 
-function ratingUpdate(ratingValue) {
-    event.preventDefault();
+function ratingUpdate(ratingData) {
+    console.log(ratingData)
 
-    const answer_rating = document.querySelector('rating').value.trim();
+    const answer_id = document.querySelector("rating").value.trim();
 
     const question_id = window.location.toString().split('/')[
         window.location.toString().split('/').length - 1
     ];
 
-    if (answer_rating) {
-        const response = await fetch('/api/answers', {
+    if (answer_id) {
+        const response = fetch(`/api/answers/${answer_id}`, {
             method: 'PUT',
             body: JSON.stringify({
-                id: question_id,
-                answer_text,
-                rating: ratingValue
+                id: answer_id,
+                question_id: question_id,
+                rating: ratingData
             }),
             headers: {
                 'Content-Type': 'application/json'
