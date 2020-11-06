@@ -1,41 +1,3 @@
-// async function ratingHandler(event) {
-//     event.preventDefault();
-
-//     const id = window.location.toString().split('/')[
-//         window.location.toString().split('/').length - 1
-//     ];
-
-//     const container = document.querySelector('.rating');
-//     const items = container.querySelectorAll('.rating-item');
-
-//     container.onclick = e => {
-//         const elClass = e.target.classList;
-//         if (!elClass.contains('active')) {
-//             items.forEach(
-//                 item => item.classList.remove('active')
-//             );
-//             console.log(e.target.getAttribute("data-rate"));
-//             elClass.add('active');
-//         }
-//     };
-
-//     const response = await fetch('/api/posts/rating', {
-//         method: 'PUT',
-//         body: JSON.stringify({
-//             post_id: id
-//         }),
-//         headers: {
-//             'Content-Type': 'application/json'
-//         }
-//     });
-
-//     if (response.ok) {
-//         document.location.reload();
-//     } else {
-//         alert(response.statusText);
-//     }
-// }
-
 const container = document.querySelector('.rating');
 const items = container.querySelectorAll('.rating-item')
 
@@ -52,24 +14,63 @@ container.onclick = e => {
             
         switch(starValue) {
             case "1":
-              alert("1 star");
-              break;
+                alert("1 star");
+                let ratingValue = 1;
+                ratingUpdate(ratingValue)
+            break;
             case "2":
                 alert("2 stars");
-              break;
-              case "3":
+                let ratingValue = 2;
+                ratingUpdate(ratingValue)
+            break;
+            case "3":
                 alert("3 stars");
-              break;
-              case "4":
+                let ratingValue = 3;
+                ratingUpdate(ratingValue)
+            break;
+            case "4":
                 alert("4 stars");
-              break;
-              case "5":
+                let ratingValue = 4;
+                ratingUpdate(ratingValue)
+            break;
+            case "5":
                 alert("5 stars");
-              break;
+                let ratingValue = 5;
+                ratingUpdate(ratingValue)
+            break;
             default:
                 alert("no stars");
         }
     }
 };
 
-// document.querySelector('.rating-btn').addEventListener('click', ratingHandler);
+function ratingUpdate(ratingValue) {
+    event.preventDefault();
+
+    const answer_rating = document.querySelector('rating').value.trim();
+
+    const question_id = window.location.toString().split('/')[
+        window.location.toString().split('/').length - 1
+    ];
+
+    if (answer_rating) {
+        const response = await fetch('/api/answers', {
+            method: 'PUT',
+            body: JSON.stringify({
+                id: question_id,
+                answer_text,
+                rating: ratingValue
+            }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        console.log(rating);
+
+        if (response.ok) {
+            document.location.reload(); 
+        } else {
+            alert(response.statusText);
+        }
+    }
+}
