@@ -28,16 +28,6 @@ Question.belongsTo(User, {
     foreignKey: 'user_id'
 });
 
-Question.belongsToMany(User, {
-    through: Rating,
-    as: 'rated_questions',
-    foreignKey: 'question_id'
-});
-
-Question.hasMany(Rating, {
-    foreignKey: 'question_id'
-});
-
 Question.hasMany(Answer, {
     foreignKey: 'question_id'
 });
@@ -51,13 +41,23 @@ Answer.belongsTo(Question, {
     foreignKey: 'question_id'
 });
 
+Answer.hasMany(Rating, {
+    foreignKey: 'answer_id'
+});
+
+Answer.belongsToMany(User, {
+    through: Rating,
+    as: 'rated_answer',
+    foreignKey: 'answer_id'
+});
+
 // ==== RATING ASSOCIATIONS ==== // 
 Rating.belongsTo(User, {
     foreignKey: 'user_id'
 });
   
-Rating.belongsTo(Question, {
-    foreignKey: 'question_id'
+Rating.belongsTo(Answer, {
+    foreignKey: 'answer_id'
 });
   
 
