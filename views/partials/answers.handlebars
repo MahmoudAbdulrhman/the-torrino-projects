@@ -1,44 +1,26 @@
-<div class="media-content">
-    {{#each this}}
-    <div class="content has-text-black-bis">
-        <p>
-            <strong>{{title}}</strong> <small>{{format_date created_at}}</small>
-            <br>
-            {{content}}
-        </p>
+<div class="answers">
+  {{#each this}}
+  <section class="answer">
+    <div class="meta">
+      {{user.username}} on {{format_date created_at}}
     </div>
-    <nav class="level is-mobile">
-        <div class="level-left">
-            <a class="level-item">
-                {{!-- save images --}}
-                <span class="icon is-small"><i class="fas fa-reply"></i></span>
-            </a>
-            <a class="level-item">
-                <span class="icon is-small"><i class="fas fa-rsetweet"></i></span>
-            </a>
-            <a class="level-item">
-                <span class="icon is-small"><i class="fas fa-heart"></i></span>
-            </a>
-        </div>
-    </nav>
+    <div class="text">
+      {{answer_text}}
+           <div class="stars">
+  <form action="">
+    <input class="star star-5" id="star-5" type="radio" name="star"/>
+    <label class="star star-5" for="star-5"></label>
+    <input class="star star-4" id="star-4" type="radio" name="star"/>
+    <label class="star star-4" for="star-4"></label>
+    <input class="star star-3" id="star-3" type="radio" name="star"/>
+    <label class="star star-3" for="star-3"></label>
+    <input class="star star-2" id="star-2" type="radio" name="star"/>
+    <label class="star star-2" for="star-2"></label>
+    <input class="star star-1" id="star-1" type="radio" name="star"/>
+    <label class="star star-1" for="star-1"></label>
+  </form>
 </div>
-
-<article class="media">
-    <figure class="media-left">
-        <p class="image is-48x48">
-            <img src="https://bulma.io/images/placeholders/96x96.png">
-        </p>
-    </figure>
-    <div class="media-content">
-        <div class="content">
-            <p>
-                <strong class="has-text-white">{{user.username}}</strong>
-                <br>
-                {{answer_text}}
-                <br>
-                <small><a>Like</a> · <a>Reply</a> · 2 hrs</small>
-            </p>
-        </div>
     </div>
-    {{/each}}
-</article>
+  </section>
+  {{/each}}
+</div>

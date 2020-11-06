@@ -1,14 +1,14 @@
 
 
-{{#if loggedIn}}
+{{!-- {{#if loggedIn}}
 <article class="media is-flex-direction-column is-four-fifths">
     <div class="media-content">
-        <div class="content has-background-grey-lighter has-text-dark">
+        <div class="content has-text-white-ter">
             <div class="media-right">
                 <button class="delete"></button>
                 {{#each questions as |question|}}
                 <p>
-                    <strong>{{user.username}}</strong> <small>{{format_date created_at}}</small>
+                    <p class="has-text-warning">{{user.username}}</p> <small class="has-text-warning">{{format_date created_at}}</small>
                     <br>
                     {{> question-info question}}
                 </p>
@@ -19,9 +19,24 @@
 </article>
 
 <script src="/javascripts/delete.js"></script>
-<<<<<<< HEAD
+{{/if}} --}}
+<article class="is-flex-direction-column">
+<div class="mb-5 pt-3 ">
+        <a href="/dashboard/add/"><button id="create-question" class="button is-primary is-pulled-right">create question</button></a>
+        
+        <h2 class="title pb-4 ">dashboard: your posts</h2><hr>
+{{#if questions.length}}
+    </div>
+
+    {{#each questions as |question|}}
+        {{> question-info question}}
+        
+            <a href="/dashboard/edit/{{question.id}}"><button class="button mb-5 ml-5 has-text-success">edit post</button></a>
+        </div>
+    {{/each}}
+
+{{else}}
+<h6 class="pb-4 has-text-centered is-italic">you do not have posts at this time</h6>
+
 {{/if}}
- --}}
-=======
-{{/if}}
->>>>>>> 94d3d3eaad8c8b570651d279394a5a541cec4b83
+</article>
