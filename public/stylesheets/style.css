@@ -69,11 +69,50 @@ h1 { font-size: 1.5em; margin: 10px; }
 
 /***** CSS Magic to Highlight Stars on Hover *****/
 
-.rating > input:checked ~ label, /* show gold star when clicked */
-.rating:not(:checked) > label:hover, /* hover current star */
-.rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+/* .rating > input:checked ~ label, /* show gold star when clicked */
+/*.rating:not(:checked) > label:hover, /* hover current star */
+/*.rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
 
-.rating > input:checked + label:hover, /* hover current star when changing rating */
-.rating > input:checked ~ label:hover,
+/*.rating > input:checked + label:hover, /* hover current star when changing rating */
+/*.rating > input:checked ~ label:hover,
 .rating > label:hover ~ input:checked ~ label, /* lighten current selection */
-.rating > input:checked ~ label:hover ~ label { color: #FFED85;  } 
+/*.rating > input:checked ~ label:hover ~ label { color: #FFED85;  } 
+
+
+/* STAR RATING */
+.active {
+  background-color: #ffff;
+}
+
+.rating {
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+.rating li {
+  list-style-type: none
+}
+
+.rating-item {
+  border: 1px solid #ffff;
+  cursor: pointer;
+  font-size: 2em;
+  color: yellow;
+}
+
+.rating-item::before {
+  content: "\2605";
+}
+
+.rating-item.active ~ .rating-item::before {
+  content: "\2606";
+} 
+
+.rating:hover .rating-item::before {
+  content: "\2605";
+}
+
+.rating-item:hover ~ .rating-item::before {
+  content: "\2606";
+} 
