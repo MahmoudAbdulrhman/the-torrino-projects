@@ -1,7 +1,20 @@
 const container = document.querySelector('.rating');
 const items = container.querySelectorAll('.star')
+console.log("Hello");
 
-container.onclick = e => {
+// document.querySelectorAll('.rating').forEach(form => {
+//     form.addEventListener('click', event => {
+//         handleFormClick(event);
+//     })
+// })
+
+$(document).on('click', '.star', e => {
+    console.log("clicked star2!")
+    handleFormClick(e)
+})
+
+//container.onclick = e => {
+const handleFormClick = function(e) {
     const elClass = e.target.classList;
     if (!elClass.contains('active')) {
         items.forEach(
@@ -11,6 +24,8 @@ container.onclick = e => {
         elClass.add('active');
         let starValue = e.target.getAttribute("data-rate");
         console.log(starValue);
+        // const answer_id = e.target.getAttribute("data-answerid")
+        console.log(answer_id)
         switch(starValue) {
             case "1":
                 alert("1 star");
@@ -43,9 +58,12 @@ container.onclick = e => {
     }
 };
 
-function ratingUpdate(ratingData) {
-    console.log(ratingData)
-    // const answer_id = document.querySelector("rating").value.trim();
+function ratingUpdate(ratingData, answer_id = "wrong!") {
+
+
+    console.log(answer_id);
+ 
+    // const answer_id = document.querySelector(".rating").value.trim();
     // const question_id = window.location.toString().split('/')[
        
     // ];
