@@ -1,16 +1,25 @@
-const container = document.querySelector('.rating');
-const items = container.querySelectorAll('.star')
+const container = document.querySelector(".rating");
+const items = container.querySelectorAll(".star")
+console.log("Hello");
 
-container.onclick = e => {
+
+$(document).on("click", ".star", e => {
+    // console.log("clicked star2!")
+    handleFormClick(e)
+})
+//container.onclick = e => {
+const handleFormClick = function(e) {
     const elClass = e.target.classList;
-    if (!elClass.contains('active')) {
+    if (!elClass.contains("active")) {
         items.forEach(
-            item => item.classList.remove('active')
+            item => item.classList.remove("active")
         );
         console.log(e.target.getAttribute("data-rate") + " star rating!");
-        elClass.add('active');
+        elClass.add("active");
         let starValue = e.target.getAttribute("data-rate");
         console.log(starValue);
+        // const answer_id = e.target.getAttribute(“data-answerid”)
+        console.log(answer_id)
         switch(starValue) {
             case "1":
                 alert("1 star");
@@ -42,13 +51,9 @@ container.onclick = e => {
         }
     }
 };
+function ratingUpdate(ratingData, answer_id = "wrong!") {
+    console.log(answer_id);
 
-function ratingUpdate(ratingData) {
-    console.log(ratingData)
-    // const answer_id = document.querySelector("rating").value.trim();
-    // const question_id = window.location.toString().split('/')[
-       
-    // ];
     if (answer_id) {
         const response = fetch(`/api/answers/${answer_id}`, {
             method: 'PUT',
@@ -63,7 +68,7 @@ function ratingUpdate(ratingData) {
         });
         console.log(rating);
         if (response.ok) {
-            document.location.reload(); 
+            document.location.reload();
         } else {
             alert(response.statusText);
         }
