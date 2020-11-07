@@ -11,6 +11,25 @@ router.get('/', (req, res) => {
     });
 });
 
+router.get('/:id', (req, res) => {
+  Answer.findOne({
+    where: {
+      id: req.params.id
+    },
+    attributes: [
+      'id',
+      'answer_text',
+      'rating',
+      'user_id'
+    ]
+  })
+    .then(dbanswerData => res.json(dbanswerData))
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
 router.post('/',  (req, res) => {
   // check the session
   if (req.session) {
@@ -21,6 +40,34 @@ router.post('/',  (req, res) => {
       user_id: req.session.user_id
     })
       .then(dbanswerData => res.json(dbanswerData))
+      .catch(err => {
+        console.log(err);
+        res.status(400).json(err);
+      });
+  }
+});
+
+router.put('/:id', (req, res) => {
+  // check the session
+  if (req.session) {
+    Answer.update(
+    {
+      rating: req.body.rating
+    },
+    {
+      where: {
+        id: req.params.id
+      }
+    }
+    )
+      .then(dbanswerData => {
+        if (!dbanswerData) {
+          res.status(404).json({ message: 'No answer to be rated' });
+          return;
+        }
+        console.log(dbanswerData);
+        res.json(dbanswerData);
+      })
       .catch(err => {
         console.log(err);
         res.status(400).json(err);

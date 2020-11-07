@@ -19,7 +19,7 @@ Answer.init(
       }
     },
     rating: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       defaultValue: 0,
     },
     user_id: {
