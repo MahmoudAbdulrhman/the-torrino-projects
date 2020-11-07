@@ -1,5 +1,6 @@
 const container = document.querySelector('.rating');
 const items = container.querySelectorAll('.star')
+
 container.onclick = e => {
     const elClass = e.target.classList;
     if (!elClass.contains('active')) {
@@ -44,10 +45,10 @@ container.onclick = e => {
 
 function ratingUpdate(ratingData) {
     console.log(ratingData)
-    const answer_id = document.querySelector("rating").value.trim();
-    const question_id = window.location.toString().split('/')[
-        window.location.toString().split('/').length - 1
-    ];
+    // const answer_id = document.querySelector("rating").value.trim();
+    // const question_id = window.location.toString().split('/')[
+       
+    // ];
     if (answer_id) {
         const response = fetch(`/api/answers/${answer_id}`, {
             method: 'PUT',

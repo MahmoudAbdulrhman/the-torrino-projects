@@ -1,4 +1,4 @@
-    const id = window.location.toString().split('/')[
+const id = window.location.toString().split('/')[
         window.location.toString().split('/').length - 1
     ];
         const container = document.querySelector('.close-btn');
@@ -13,10 +13,33 @@
                     'Content-Type': 'application/json'
                 }    
             })
+                if (response.ok) {
+                    document.location.reload();
+                } else {
+                    alert(response.statusText);
+                }
         }
 
-        if (response.ok) {
-            document.location.reload();
-        } else {
-            alert(response.statusText);
-        }
+ 
+const questionStatus = () => {
+    
+    let x = document.getElementById("myDIV");
+    
+    const response = fetch(`/api/questions/${id}`, {
+        method: 'GET',
+        body: JSON.stringify({
+            status: false
+        }),
+        headers: {
+            'Content-Type': 'application/json'
+        }    
+    })
+    if (response.status === false) {
+        x.style.display = "none";
+    } else {
+        x.style.display = "block";
+    }
+}
+
+questionStatus()
+       
