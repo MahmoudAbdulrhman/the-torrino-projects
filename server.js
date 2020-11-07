@@ -19,7 +19,8 @@ const sess = {
   secret: 'Super secret secret',
   cookie: {
     //Session to expire in approx 10 min.  
-    maxAge: 10 * 60 * 1000
+    maxAge: 3600000000
+    // 10 * 60 * 1000
   
   },
   resave: false,

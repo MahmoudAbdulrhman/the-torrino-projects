@@ -1,18 +1,24 @@
- {{> question-info question }}
+<h2 class="subtitle is-5 has-text-dark mt-1">ANSWERS</h2>
+<hr>
 
-{{#if loggedIn}}
-<form class="answer-form">
-  <div>
-    <textarea name="answer-body"></textarea>
-  </div>
-
-  <div>
-    <button type="submit">add comment</button>
-  </div>
-</form>
-{{/if}}
+{{> question-info question }}
 
 {{> answers question.answers}}
+
+{{#if loggedIn}}
+<br>
+<form class="answer-form">
+  <div>
+    <label for="content has-text-weight-bold">ANSWER:</label>
+    <input class="textarea is-normal" id="content" name="answer-body" placeholder="CONTENT" />
+    <p>
+      <button type="submit" class="button is-small is-dark is-outlined is-pulled-right">SUBMIT</button>
+    </p>
+  </div>
+</form>
+
+
+{{/if}}
 
 {{#if loggedIn}}
 <script src="/javascripts/answer.js"></script>
@@ -21,5 +27,4 @@
   integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
   crossorigin="anonymous"></script>
 <script src="/javascripts/rating.js"></script>
-
 {{/if}}

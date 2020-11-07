@@ -1,18 +1,18 @@
-<div class="card mb-6">
-  <header class="card-header card-header-title grey-light  ">
- <div class="column">
-      <span class=""> </span>
-      </div>
-    
-  </header>
-
-    <div class="card-content grey-dark">
-        <div class="content has-text-justified">
-            {{content}}
+<div class="column has-background-white is-vcentered">
+  <article class="post">
+    <a href="/dashboard/question/{{id}}" class="lead has-text-dark has-text-weight-semibold">{{title}}</a>
+    <div class="media">
+      <div class="media-content">
+        <div class="content">
+          <p class="has-text-dark is-pulled-right">{{user.username}} | <small
+              class="has-text-dark">{{format_date created_at}}</small></p>
         </div>
-            <div class="is-pulled-right">
-                <b>{{user.username}}</b> | 
-                 | {{format_date created_at}} | <a href="/question/{{id}}">{{questions.length}} {{format_plural "question" questions.length}}</a>
-            </div>
-        
+        {{content}}
+      </div>
+      <div class="media-right">
+        <span class="has-text-grey-light"><i class="fa fa-comments"></i> 1</span>
+      </div>
     </div>
+  </article>
+  <hr>
+</div>

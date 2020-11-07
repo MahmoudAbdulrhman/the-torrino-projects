@@ -22,32 +22,47 @@
                 <div class="container">
                     <div class="navbar-brand">
                         <a class="navbar-item">
-                            <a class="has-text-weight-semibold has-text-white is-size-3" href="/">Study Mouse!</a>
+                            <a class="has-text-weight-semibold has-text-white is-size-3" href="/">Study Mouse</a>
                         </a>
+                        <div class="navbar-burger burger" data-target="topNav">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
                     </div>
-                    <div id="navbarMenuHeroC" class="navbar-menu">
+                    <div id="topNav" class="navbar-menu">
+                        <div class="navbar-start">
+                            <a class="navbar-item" href="/">Home</a>
+                            <a class="navbar-item" href="/dashboard">Dashboard</a>
+                        </div>
                         <div class="navbar-end">
-                            {{#if loggedIn}}
-                            <a class="navbar-item" href="/dashboard/add">
-                                CREATE NEW POST
-                            </a>
-                            <a class="navbar-item" href="/">
-                                FEED
-                            </a>
-                            <a class="navbar-item" href="/dashboard">
-                                DASHBOARD
-                            </a>
-                            <a class="navbar-item" id="logout" href="/">
-                                LOG OUT
-                            </a>
-                            {{else}}
-                            <a class="navbar-item" href="/signup">
-                                SIGN UP
-                            </a>
-                            <a class="navbar-item" href="/login">
-                                LOG IN
-                            </a>
-                            {{/if}}
+                            <div class="navbar-item">
+                                <div class="field is-grouped">
+                                    {{#if loggedIn}}
+                                    <p class="control">
+                                        <a class="button is-small is-light is-outlined" id="logout" href="/login">
+                                            <span class="has-text-white">Logout</span>
+                                        </a>
+                                    </p>
+                                    {{else}}
+                                    <p class="control">
+                                        <a class="button is-small" href="/signup">
+                                            <span class="icon">
+                                                <i class="fa fa-user-plus"></i>
+                                            </span>
+                                            <span>
+                                                Sign Up
+                                            </span>
+                                        </a>
+                                    </p>
+                                    <p class="control">
+                                        <a class="button is-small is-light is-outlined" href="/login">
+                                            <span class="has-text-white">Login</span>
+                                        </a>
+                                    </p>
+                                    {{/if}}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -55,13 +70,20 @@
         </div>
 
         <!-- Hero content: will be in the middle -->
-        <div class="has-text-dark column is-vcentered ">
-            {{{body}}}
+        <div class="hero is-large has-text-dark">
+            <div class="column">
+                    {{#if loggedIn}}
+                    <div class="box content">
+                        {{/if}}
+                        {{{body}}}
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Hero footer: will stick at the bottom -->
         <div class="hero-foot">
-            <div class="content has-text-centered">
+            <div class="content has-text-centered has-text-light">
                 <p>
                     © <a class="has-text-link-light" href="https://github.com/MahmoudAbdulrhman/">Mahmoud
                         Abdulrhman</a>, <a class="has-text-link-light" href="https://github.com/daejo">David

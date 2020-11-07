@@ -23,7 +23,7 @@ const id = window.location.toString().split('/')[
  
 const questionStatus = () => {
     
-    let x = document.getElementById("myDIV");
+    let x = document.getElementById("answer-block");
     
     const response = fetch(`/api/questions/${id}`, {
         method: 'GET',
