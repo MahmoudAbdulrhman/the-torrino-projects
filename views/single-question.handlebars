@@ -1,4 +1,7 @@
- {{> question-info question }}
+<h2 class="subtitle is-5 has-text-dark mt-1">ANSWERS</h2>
+<hr>
+
+{{> question-info question }}
 
 {{#if loggedIn}}
 <form class="answer-form">
@@ -7,7 +10,7 @@
   </div>
 
   <div>
-    <button type="submit">add comment</button>
+    <button type="submit">Add Comment</button>
   </div>
 </form>
 {{/if}}

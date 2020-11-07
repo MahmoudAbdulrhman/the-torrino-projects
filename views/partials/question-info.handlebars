@@ -1,19 +1,15 @@
-
-<div class="has-background-white column justify-content-between ">
-<article class="list-group">
-    <div class="list-group-item d-flex justify-content-between align-items-center bg-dark">
-        <a href="/dashboard/post/{{id}}" class="lead text-white">{{title}}</a>
-        <span class="post-meta text-white">Posted by {{user.username}} on {{format_date created_at}}</span>
+<article class="post">
+  <a href="/dashboard/question/{{id}}" class="lead has-text-dark has-text-weight-semibold">{{title}}</a>
+  <div class="media">
+    <div class="media-content">
+      <div class="content">
+        <p class="has-text-dark is-pulled-right">{{user.username}} | <small
+            class="has-text-dark">{{format_date created_at}}</small></p>
+      </div>
+          {{content}}
     </div>
-    {{content}}
+    <div class="media-right">
+      <span class="has-text-grey-light"><i class="fa fa-comments"></i> 1</span>
+    </div>
+  </div>
 </article>
-
-<article class="column data-content">
-
-  {{#each questions as |question|}}
-  {{> question-info question}}
-
-  {{/each}}
-
-</article>
-
