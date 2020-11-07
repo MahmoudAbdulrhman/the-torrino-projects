@@ -12,12 +12,10 @@ const handleFormClick = function(e) {
         items.forEach(
             item => item.classList.remove("active")
         );
-        // console.log(e.target.getAttribute("data-rate") + " star rating!");
         elClass.add("active");
         let starValue = e.target.getAttribute("data-rate");
         let answerValue = e.target.getAttribute("answer_no")
         // console.log(starValue);
-       
         // console.log(answerValue)
         switch(starValue) {
             case "1":
