@@ -5,13 +5,16 @@
       <div class="media-content">
         <div class="content">
           <p class="has-text-dark is-pulled-right">{{user.username}} | <small
-              class="has-text-dark">{{format_date created_at}}</small></p>
+              class="has-text-dark">{{format_date created_at}}</small></p> 
         </div>
         {{content}}
       </div>
       <div class="media-right">
-        <span class="has-text-grey-light"><i class="fa fa-comments"></i> 1</span>
-      </div>
+        <a href="/dashboard/question/{{id}}" class="has-text-grey-light"><i class="fa fa-comments"></i> </span>
+        <a  href="/dashboard/edit-question/{{id}}" class="has-text-grey-light"><i class="fa fa-edit"></i></i> </a>
+        <a class="has-text-grey-light"><i class="fa fa-trash"></i> </a>
+        <a class="has-text-danger"><i class="fa fa-power-off"></i> </a>
+      </div> 
     </div>
   </article>
   <hr>
