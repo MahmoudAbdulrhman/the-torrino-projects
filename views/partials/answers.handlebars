@@ -1,10 +1,10 @@
-<div class="answers">
+<div class="answers is-centered">
   {{#each this}}
   <section class="answer">
     <div class="meta">
       <a class="has-text-weight-bold has-text-dark">{{user.username}}</a> · {{format_date created_at}}
     </div>
-        <div class="text">
+        <div class="text is-centered">
       {{answer_text}}
             <div class="stars">
                 <form class="rating" question_no="{{question_id}}" answer_no="{{id}}" action="">

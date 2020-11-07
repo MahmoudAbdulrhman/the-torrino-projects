@@ -3,19 +3,22 @@
 
 {{> question-info question }}
 
+{{> answers question.answers}}
+
 {{#if loggedIn}}
+<br>
 <form class="answer-form">
   <div>
-    <textarea name="answer-body"></textarea>
-  </div>
-
-  <div>
-    <button type="submit">Add Comment</button>
+    <label for="content has-text-weight-bold">ANSWER:</label>
+    <input class="textarea is-normal" id="content" name="answer-body" placeholder="CONTENT" />
+    <p>
+      <button type="submit" class="button is-small is-dark is-outlined is-pulled-right">SUBMIT</button>
+    </p>
   </div>
 </form>
-{{/if}}
 
-{{> answers question.answers}}
+
+{{/if}}
 
 {{#if loggedIn}}
 <script src="/javascripts/answer.js"></script>
