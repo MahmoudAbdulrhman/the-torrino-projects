@@ -21,7 +21,7 @@ const id = window.location.toString().split('/')[
         }
 
  
-const closedQuestion = () => {
+const questionStatus = () => {
     
     let x = document.getElementById("myDIV");
     
@@ -41,4 +41,5 @@ const closedQuestion = () => {
     }
 }
 
+questionStatus()
        
