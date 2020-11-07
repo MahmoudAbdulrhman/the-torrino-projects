@@ -9,7 +9,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-
+ 
+    <script src="./javascripts/rating.js"></script>
+   
 </head>
 
 <body>
@@ -68,10 +70,13 @@
         </div>
 
         <!-- Hero content: will be in the middle -->
-        <div class="has-text-dark column ">
-            <div class="column ">
-                <div class="box content">
-                    {{{body}}}
+        <div class="hero is-large has-text-dark">
+            <div class="column">
+                    {{#if loggedIn}}
+                    <div class="box content">
+                        {{/if}}
+                        {{{body}}}
+                    </div>
                 </div>
             </div>
         </div>
