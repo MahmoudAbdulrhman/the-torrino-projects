@@ -2,12 +2,12 @@ const id = window.location.toString().split('/')[
         window.location.toString().split('/').length - 1
     ];
         const container = document.querySelector('.close-btn');
-        container.onclick = e => {
+        container.onclick = () => {
             const response = fetch(`/api/questions/${id}`, {
                 method: 'PUT',
                 body: JSON.stringify({
                     question_id: id,
-                    status: false
+                    status
                 }),
                 headers: {
                     'Content-Type': 'application/json'
@@ -28,12 +28,14 @@ const questionStatus = () => {
     const response = fetch(`/api/questions/${id}`, {
         method: 'GET',
         body: JSON.stringify({
-            status: false
+            id,
+            status
         }),
         headers: {
             'Content-Type': 'application/json'
         }    
     })
+    console.log(response)
     if (response.status === false) {
         x.style.display = "none";
     } else {

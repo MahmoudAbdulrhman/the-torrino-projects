@@ -6,17 +6,11 @@ $(document).on("click", ".star", e => {
 })
 
 const handleFormClick = function(e) {
-    // console.log(e)
-    const elClass = e.target.classList;
-    if (!elClass.contains("active")) {
-        items.forEach(
-            item => item.classList.remove("active")
-        );
-        elClass.add("active");
+ 
         let starValue = e.target.getAttribute("data-rate");
         let answerValue = e.target.getAttribute("answer_no")
         // console.log(starValue);
-        // console.log(answerValue)
+        // console.log(answerValue);
         switch(starValue) {
             case "1":
                 alert("1 star");
@@ -46,12 +40,8 @@ const handleFormClick = function(e) {
             default:
                 alert("no stars");
         }
-    }
-};
+}
 
-
-
-// // myFunction()
 async function ratingUpdate(ratingData, answerData) {
     event.preventDefault();
     console.log(answerData)
