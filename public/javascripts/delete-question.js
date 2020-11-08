@@ -1,4 +1,4 @@
-$('.delete').bind('click', deleteFormHandler);
+
 
 async function deleteFormHandler(event) {
     event.preventDefault();
@@ -6,11 +6,11 @@ async function deleteFormHandler(event) {
     const question_id = window.location.toString().split('/')[
       window.location.toString().split('/').length - 1
     ];
-    
+    console.log(question_id);
     const response = await fetch(`/api/questions/${question_id}`, {
       method: 'DELETE'
     });
-  
+    
     if (response.ok) {
       document.location.replace('/dashboard');
     } else {
@@ -18,5 +18,9 @@ async function deleteFormHandler(event) {
     }
   }
   
-  // document.querySelector('.delete-question-btn').addEventListener('click', deleteFormHandler);
+  document.querySelector('.delete-question-btn').addEventListener('click', deleteFormHandler);
+
+
+
+
 
