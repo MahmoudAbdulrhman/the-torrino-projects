@@ -30,14 +30,32 @@
         {{#if questions.length}}
         {{#each questions as |question|}}
         {{> question-info question}}
-
+                        <div class="media-right">
+                            <a href="/dashboard/question/{{id}}" class="has-text-grey-light"><i class="fa fa-comments"></i> </span>
+                                <a href="/dashboard/edit-question/{{id}}" class="has-text-grey-light"><i class="fa fa-edit"></i></i></a>
+                                <a class="has-text-grey-light delete delete-question-btn"><i class="fa fa-trash"></i> </a>
+                                <a class="has-text-danger"><i class="fa fa-power-off"></i> </a>
+                        </div>
+                    </div>
+                </article>
+            <hr>
+        </div>
         {{/each}}
         {{else}}
-        
-        <h6 class="pb-4 has-text-centered is-italic">YOU HAVE NO QUESTIONS POSTINGS AT THE MOMENT</h6>
 
-        {{/if}}
-    </article>
+<h6 class="pb-4 has-text-centered is-italic">YOU HAVE NO QUESTIONS POSTINGS AT THE MOMENT</h6>
+
+{{/if}}
+</article>
 </div>
 
+<<<<<<< HEAD
 {{!-- <script src="/javascripts/rating.js"></script> --}}
+=======
+ <script
+ src="http://code.jquery.com/jquery-3.5.1.slim.min.js"
+  integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
+  crossorigin="anonymous"></script>
+<script src="/javascripts/rating.js"></script>
+<script src="/javascripts/delete-question.js"></script>
+>>>>>>> d5c61ed24420882f261c67eca5279307b0fbcaa6

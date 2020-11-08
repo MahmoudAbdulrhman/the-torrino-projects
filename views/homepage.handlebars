@@ -1,5 +1,13 @@
 <div class="is-flex-direction-column">
-{{#each questions as |question|}}
-{{> question-info question}}
+    {{#each questions as |question|}}
+
+    {{> question-info question}}
+    <div class="media-right">
+        <a href="/dashboard/question/{{id}}" class="has-text-grey-light"><i class="fa fa-comments"></i> </span>
+    </div>
+</div>
+</article>
+<hr>
+</div>
 {{/each}}
 </div>

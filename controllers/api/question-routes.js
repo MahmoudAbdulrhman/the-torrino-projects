@@ -81,7 +81,7 @@ router.get('/:id', (req, res) => {
 });
 
 router.get('/question/:id', (req, res) => {
-  Post.findOne({
+  Question.findOne({
       where: {
           id: req.params.id
       },
@@ -113,7 +113,7 @@ router.get('/question/:id', (req, res) => {
               return;
           }
 
-          const question = dbquestionData.get({ plain: true });
+          const Question = dbquestionData.get({ plain: true });
 
           res.render('single-question', {
               Question,
@@ -147,6 +147,7 @@ router.put('/:id', (req, res) => {
   Question.update(
     {
       title: req.body.title,
+      content: req.body.content,
       status: req.body.status
     },
     {
