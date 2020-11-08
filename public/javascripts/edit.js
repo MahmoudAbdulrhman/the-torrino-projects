@@ -2,7 +2,7 @@ async function editFormHandler(event) {
     event.preventDefault();
   
     const title = document.querySelector('input[name="questions-title"]').value;
-    const question_content = document.querySelector('input[name="question-content"]').value;
+    const content = document.querySelector('input[name="question-content"]').value;
     const id = window.location.toString().split('/')[
         window.location.toString().split('/').length - 1
       ];
@@ -11,7 +11,7 @@ async function editFormHandler(event) {
         method: 'PUT',
         body: JSON.stringify({
             title,
-            question_content
+            content
         }),
         headers: {
             'Content-Type': 'application/json'

@@ -1,10 +1,9 @@
-
-
 <article>
   <a href="/dashboard" class="is-pulled-right"> &larr; back to dashboard</a>
-  <h2 class="title subtitle is-5 has-text-dark mt-1">EDIT QUESTION</h2><hr>
-  
-    {{!-- {{> question-info question}}
+  <h2 class="title subtitle is-5 has-text-dark mt-1">EDIT QUESTION</h2>
+  <hr>
+
+  {{!-- {{> question-info question}}
     
     <div class="media-right">
         <a href="/dashboard/questions/{{id}}" class="has-text-grey-light"><i class="fa fa-comments"></i> </span>
@@ -12,13 +11,15 @@
 </div> --}}
 
   <form class="edit-question-form">
+    <a class="btn btn-primary btn-lg delete-question-btn has-text-grey-light is-pulled-right"><i
+        class="fa fa-trash"></i></a>
     <div>
-        <label for="questions-title">Title:</label>
+      <label for="questions-title">Title:</label>
       <input class="input form-control" name="questions-title" type="text" value="{{question.title}}" />
     </div>
     <div>
-        <label for="question-content">Question:</label>
-      <input class="textarea form-control" name="question-content" value="{{question.question_content}}" />
+      <label for="question-content">Question:</label>
+      <input class="textarea form-control" name="question-content" value="{{question.content}}" />
     </div>
     <button type="submit" class="button is-small is-dark is-outlined is-pulled-right">save question</button>
   </form>

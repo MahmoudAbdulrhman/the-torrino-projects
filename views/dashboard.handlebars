@@ -30,11 +30,10 @@
         {{#if questions.length}}
         {{#each questions as |question|}}
         {{> question-info question}}
-                        <div class="media-right">
+                        <div class="media-right trash-container">
                             <a href="/dashboard/question/{{id}}" class="has-text-grey-light"><i class="fa fa-comments"></i> </span>
                                 <a href="/dashboard/edit-question/{{id}}" class="has-text-grey-light"><i class="fa fa-edit"></i></i></a>
-                                <a class="has-text-grey-light delete delete-question-btn"><i class="fa fa-trash"></i> </a>
-                                <a class="has-text-danger"><i class="fa fa-power-off"></i> </a>
+                                <a href="/dashboard/edit-question/{{id}}" class="has-text-grey-light" question_number="{{id}}"><i class="fa fa-trash"></i> </a>
                         </div>
                     </div>
                 </article>

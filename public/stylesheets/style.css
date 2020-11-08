@@ -76,9 +76,9 @@ h1 { font-size: 1.5em; margin: 10px; }
 /* .rating > input:checked + label:hover, hover current star when changing rating */
 /* .rating > input:checked ~ label:hover, */
 /* .rating > label:hover ~ input:checked ~ label, lighten current selection */
-/* .rating > input:checked ~ label:hover ~ label { color: #FFED85;  }  */ */ */
+/* .rating > input:checked ~ label:hover ~ label { color: #FFED85;  }  */
 
-
+/* 
 div.stars {
   width: 270px;
   display: inline-block;
@@ -119,4 +119,4 @@ hr {
   margin-bottom: 0.5rem;
   border: 0;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
-}
+} */
