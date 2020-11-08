@@ -1,6 +1,3 @@
-const container = document.querySelector(".rating");
-const items = container.querySelectorAll(".star")
-
 $(document).on("click", ".star", e => {
     handleFormClick(e)
 })
@@ -9,8 +6,8 @@ const handleFormClick = function(e) {
  
         let starValue = e.target.getAttribute("data-rate");
         let answerValue = e.target.getAttribute("answer_no")
-        // console.log(starValue);
-        // console.log(answerValue);
+        console.log(starValue);
+        console.log(answerValue);
         switch(starValue) {
             case "1":
                 alert("1 star");
@@ -43,7 +40,7 @@ const handleFormClick = function(e) {
 }
 
 function ratingUpdate(ratingData, answerData) {
-    event.preventDefault();
+    // event.preventDefault();
     console.log(answerData)
     const response = fetch(`/api/answers/${answerData}`, {
         method: 'PUT',
