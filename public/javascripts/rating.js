@@ -1,4 +1,4 @@
-$(document).on("click", "#rating-form", e => {
+$(document).on("click", ".star", e => {
     handleFormClick(e)
 });
 
