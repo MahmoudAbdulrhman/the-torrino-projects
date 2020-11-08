@@ -4,7 +4,7 @@ const withAuth = require('../../utils/auth');
 
 router.get('/', (req, res) => {
   Answer.findAll()
-    .then(dbanswerData => res.json(dbanswerData))
+    .then(dbAnswerData => res.json(dbAnswerData))
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
@@ -23,7 +23,7 @@ router.get('/:id', (req, res) => {
       'user_id'
     ]
   })
-    .then(dbanswerData => res.json(dbanswerData))
+    .then(dbAnswerData => res.json(dbAnswerData))
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
@@ -39,7 +39,7 @@ router.post('/',  (req, res) => {
       // use the id from the session
       user_id: req.session.user_id
     })
-      .then(dbanswerData => res.json(dbanswerData))
+      .then(dbAnswerData => res.json(dbAnswerData))
       .catch(err => {
         console.log(err);
         res.status(400).json(err);
@@ -81,12 +81,12 @@ router.delete('/:id', withAuth, (req, res) => {
       id: req.params.id
     }
   })
-    .then(dbanswerData => {
-      if (!dbanswerData) {
+    .then(dbAnswerData => {
+      if (!dbAnswerData) {
         res.status(404).json({ message: 'No answer found with this id!' });
         return;
       }
-      res.json(dbanswerData);
+      res.json(dbAnswerData);
     })
     .catch(err => {
       console.log(err);
