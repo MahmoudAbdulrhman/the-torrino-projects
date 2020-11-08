@@ -42,10 +42,10 @@ const handleFormClick = function(e) {
         }
 }
 
-async function ratingUpdate(ratingData, answerData) {
+function ratingUpdate(ratingData, answerData) {
     event.preventDefault();
     console.log(answerData)
-    const response = await fetch(`/api/answers/${answerData}`, {
+    const response = fetch(`/api/answers/${answerData}`, {
         method: 'PUT',
         body: JSON.stringify({
             id: answerData,
