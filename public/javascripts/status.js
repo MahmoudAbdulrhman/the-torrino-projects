@@ -23,7 +23,7 @@ const id = window.location.toString().split('/')[
  
 const questionStatus = () => {
     
-    let x = document.getElementById("answer-block");
+    let x = document.querySelector(".answer-block");
     
     const response = fetch(`/api/questions/${id}`, {
         method: 'GET',
@@ -41,5 +41,5 @@ const questionStatus = () => {
     }
 }
 
-questionStatus()
+questionStatus();
        

@@ -1,10 +1,11 @@
-<article class="column">
-  <div class="column">
-    <a href="/dashboard" class="is-pulled-right"> &larr; back to dashboard</a>
-    <h2 class="subtitle is-5 has-text-dark">POST A QUESTION</h2>
+
+<article>
+  <a href="/dashboard" class="is-pulled-right"> &larr; back to dashboard</a>
+    <h2 class="subtitle is-5 has-text-dark">POST A QUESTION</h2><hr>
     <hr>
     <form class="new-question-form ">
       <div>
+        {{loggedIn}}
         <label for="title">Title:</label>
         <input class="input" type="text" id="title" name="title" placeholder="TITLE" />
       </div>
@@ -16,7 +17,7 @@
         <button type="submit" class="button is-small is-dark is-outlined is-pulled-right">POST</button>
       </p>
     </form>
-  </section>
-
+</article>
+<hr>
 
   <script src="/javascripts/add-question.js"></script>
