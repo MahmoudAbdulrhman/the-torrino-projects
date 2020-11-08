@@ -1,11 +1,16 @@
-<div class="is-flex-direction-column">
+<div class="is-flex-direction-column has-background-white column justify-content-between"></div>
+<article class="has-background-white column ">
+    <p>
+    <h2 class="subtitle is-5 has-text-dark">STUDENT INQUIRIES</h2>
+    </p>
+    <hr>
     {{#each questions as |question|}}
 
     {{> question-info question}}
     <div class="media-right">
         <a href="/dashboard/question/{{id}}" class="has-text-grey-light"><i class="fa fa-comments"></i> </span>
     </div>
-</div>
+    </div>
 </article>
 <hr>
 </div>
