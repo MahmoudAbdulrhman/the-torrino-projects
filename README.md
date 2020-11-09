@@ -1,6 +1,6 @@
 # Study Mouse
-  ![Top Language](https://img.shields.io/github/languages/top/MahmoudAbdulrhman/Study-Mouse)
-  ![GitHub Language count](https://img.shields.io/github/languages/count/MahmoudAbdulrhman/Study-Mouse)
+  ![Top Language](https://img.shields.io/github/languages/top/MahmoudAbdulrhman/the-torrino-projects)
+  ![GitHub Language count](https://img.shields.io/github/languages/count/MahmoudAbdulrhman/the-torrino-projects)
   ![License](https://img.shields.io/badge/license-MIT_License-green.svg)
 
   ## Description 
@@ -77,6 +77,7 @@
 ![Screenshot](public/screenshots/ss0.PNG)
 ![Screenshot](public/screenshots/ss1.PNG)
 ![Screenshot](public/screenshots/ss2.PNG)
+![Screenshot](public/screenshots/ss3.PNG)
 
   ---
   ## Questions?
