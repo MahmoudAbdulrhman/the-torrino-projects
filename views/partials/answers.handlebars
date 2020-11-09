@@ -7,20 +7,19 @@
       <a class="has-text-weight-bold has-text-dark">{{user.username}}</a> · {{format_date created_at}}
     </div>
     <div class="text">
-      {{id}}
       {{answer_text}}
           <div class="stars is-pulled-right">
             <form id="rating-form" class="rating" question_no="{{question_id}}" answer_no="{{id}}" action="">
               <input class="star star-5" data-rate="5" id="5star-{{id}}" type="radio" answer_no="{{id}}" name="star" />
-                <label class="star star-5" data-rate="5" for="5star-{{id}}"></label>
+                <label class="star star-5" for="5star-{{id}}"></label>
               <input class="star star-4" data-rate="4" id="4star-{{id}}" type="radio" answer_no="{{id}}" name="star" />
-                <label class="star star-4" data-rate="4" for="4star-{{id}}"></label>
+                <label class="star star-4" for="4star-{{id}}"></label>
               <input class="star star-3" data-rate="3" id="3star-{{id}}" type="radio" answer_no="{{id}}" name="star" />
-                <label class="star star-3" data-rate="3" for="3star-{{id}}"></label>
+                <label class="star star-3" for="3star-{{id}}"></label>
               <input class="star star-2" data-rate="2" id="2star-{{id}}" type="radio" answer_no="{{id}}" name="star" />
-                <label class="star star-2" data-rate="2" for="2star-{{id}}"></label>
+                <label class="star star-2" for="2star-{{id}}"></label>
               <input class="star star-1" data-rate="1" id="1star-{{id}}" type="radio" answer_no="{{id}}" name="star" />
-                <label class="star star-1" data-rate="1" for="1star-{{id}}"></label>
+                <label class="star star-1" for="1star-{{id}}"></label>
             </form>
         </div>
     </div>

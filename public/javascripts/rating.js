@@ -8,32 +8,25 @@ const handleFormClick = function(e) {
     
     switch(starValue) {
         case "1":
-            alert("1 star");
             ratingValue = 1;
             ratingUpdate(ratingValue, answerValue);
         break;
         case "2":
-            alert("2 stars");
             ratingValue = 2;
             ratingUpdate(ratingValue, answerValue);
         break;
         case "3":
-            alert("3 stars");
             ratingValue = 3;
             ratingUpdate(ratingValue, answerValue);
         break;
         case "4":
-            alert("4 stars");
             ratingValue = 4;
             ratingUpdate(ratingValue, answerValue);
         break;
         case "5":
-            alert("5 stars");
             ratingValue = 5;
             ratingUpdate(ratingValue, answerValue);
         break;
-        default:
-            alert("no stars");
     }
 };
 
@@ -50,3 +43,4 @@ function ratingUpdate(ratingData, answerData) {
         }
     });
 };
+

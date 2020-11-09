@@ -30,7 +30,7 @@ router.get('/:id', (req, res) => {
     });
 });
 
-router.post('/',  (req, res) => {
+router.post('/', withAuth, (req, res) => {
   // check the session
   if (req.session) {
     Answer.create({
@@ -47,7 +47,7 @@ router.post('/',  (req, res) => {
   }
 });
 
-router.put('/:id', (req, res) => {
+router.put('/:id', withAuth, (req, res) => {
   // check the session
   if (req.session) {
     Answer.update(

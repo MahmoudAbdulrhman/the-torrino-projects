@@ -38,8 +38,7 @@ router.get('/', (req, res) => {
     });
 });
 
-//put  withAuth,
-router.get('/:id', (req, res) => {
+router.get('/:id', withAuth, (req, res) => {
   Question.findOne({
     where: {
       id: req.params.id
@@ -126,8 +125,7 @@ router.get('/question/:id', (req, res) => {
       });
 })
 
-//put  withAuth,
-router.post('/', (req, res) => {
+router.post('/', withAuth, (req, res) => {
  
   Question.create({
     title: req.body.title,
@@ -141,9 +139,7 @@ router.post('/', (req, res) => {
     });
 });
 
-//put  withAuth
-
-router.put('/:id', (req, res) => {
+router.put('/:id', withAuth, (req, res) => {
   Question.update(
     {
       title: req.body.title,
@@ -168,8 +164,9 @@ router.put('/:id', (req, res) => {
       res.status(500).json(err);
     });
 });
-//put  withAuth,
-router.delete('/:id', (req, res) => {
+
+
+router.delete('/:id', withAuth, (req, res) => {
   Question.destroy({
     where: {
       id: req.params.id
