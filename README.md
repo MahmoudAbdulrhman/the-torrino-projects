@@ -5,7 +5,7 @@
 
   ## Description 
 
-  _Study Mouse is a collaborative online resource where users can trade highly specific information through asking questions and getting answers for them. The likes of stackoverflow and quora.__
+  _Study Mouse is a collaborative online resource where users can trade highly specific information through asking questions and getting answers for them. The likes of stackoverflow and quora._
  
   ## Table of Contents
 
@@ -18,19 +18,25 @@
   
   ## Built Using
 
-  - Javascript
-  - NPM express
-  - Node.js
-  - Sequelizer
-  - Insomnia REST Client
-  - dotenv package
-  - MySql
+  - Javascript 1.8.5
+  - CSS
   - Heroku
+    - App Deployment
+    - JAWSDB
+      - Online Database Manager
   - Bulma
-  - Express
-  - Express-session
-  - Express-handlebars
-  - Handlebars
+    - Styling
+  - Insomnia REST Client
+    - Testing API
+  - Node.js
+  - NPM Packages:
+    - Dotenv
+    - MySql
+    - Sequelizer
+    - Express
+    - Express-session
+    - Express-handlebars
+    - Handlebars
 
   ## Installation
 
@@ -39,12 +45,15 @@
   ## Usage 
 
 - Visit the website: https://thawing-castle-75058.herokuapp.com/
-- Create a new user by clicking Sign Up.
-- Compose a new question by clicking "Post Question".
-- You may add an answer to your post or other's post.
-- You may rate the answers using the star ratings.
-- You may update and delete your own post.
-- You may also check the feed and your own dashboard.
+  - Create a new user by clicking Sign Up.
+  - Once account is created you are automatically logged in.
+    - Compose a new question by clicking the green ``Post A Question`` button in your dashboard.
+    - You may add an answer to your question or other's questions by clicking a questions ``Add Comment Icon``.
+    - You may rate the answers using the star ratings.
+      - Click the star that corresponds to your rating (1-5 from left to right), click and an alert will tell you the rating you chose, from there press enter.
+    - You may update and delete your own question inside your own dashboard.
+    - You may also check other people's question through the website feed.
+    - You can check all of your questions through dashboard.
 
   ## Links
 
@@ -53,9 +62,15 @@
 
   ## Credits
 
-- Mahmoud Abdulhrhman
-- David Joaquin
-- Marrione Nguyen
+- Mahmoud Abdulhrhman 
+  - Controller
+  - Debugging
+- David Joaquin 
+  - Model
+  - Additional Logic
+- Marrione Nguyen 
+  - View
+  - Additional Styling
 
   ## Screenshot
 
